@@ -1,34 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>
-        Website SD N 1 Cilimus
-    </title>
-    <meta name="description" content="Simple landind page" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="" />
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
-    <!--Replace with your tailwind.css once created-->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
-    <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
-    <style>
-        .gradient {
-            /* background: linear-gradient(90deg, #d53369 0%, #daae51 100%); */
-            background: rgba(0, 0, 0, 0.801);
-        }
-    </style>
-</head>
-
-<body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
-    <!--Nav-->
-    <x-user.navbar />
-
-    <!--Hero-->
-    <div class="pt-24 bg-cover bg-center h-screen" style="background-image: url('{{ asset('images/education.jpg') }}');">
+{{-- halaman dashboard user --}}
+<x-user-layout>
+    <div class="pt-24 bg-cover bg-center h-screen"
+        style="background-image: url('{{ asset('images/education.jpg') }}');">
         <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
             <!--Left Col-->
             <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
@@ -86,11 +59,18 @@
             <div class="flex flex-wrap">
                 <div class="w-5/6 sm:w-1/2 p-6">
                     <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                        Lorem ipsum dolor sit amet
+                        Bp. Slamet Riyati S.pd M.pls
                     </h3>
                     <p class="text-gray-600 mb-8">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                        posuere et sit amet ligula. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint amet laboriosam quaerat quasi. Provident, consequuntur ipsam vel voluptatibus quia quisquam ipsa assumenda sunt officiis nemo eius ducimus corrupti dolore eos. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam cupiditate rerum alias nisi non. Consequuntur eum perferendis sit tempora ipsum ad delectus dicta, quibusdam veniam repellat tempore deleniti atque molestiae? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempore quibusdam itaque earum eaque ut cumque impedit numquam, molestias dicta debitis praesentium libero nihil illo veritatis dolore porro, quaerat quasi.
+                        posuere et sit amet ligula. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint amet
+                        laboriosam quaerat quasi. Provident, consequuntur ipsam vel voluptatibus quia quisquam ipsa
+                        assumenda sunt officiis nemo eius ducimus corrupti dolore eos. Lorem, ipsum dolor sit amet
+                        consectetur adipisicing elit. Totam cupiditate rerum alias nisi non. Consequuntur eum
+                        perferendis sit tempora ipsum ad delectus dicta, quibusdam veniam repellat tempore deleniti
+                        atque molestiae? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempore
+                        quibusdam itaque earum eaque ut cumque impedit numquam, molestias dicta debitis praesentium
+                        libero nihil illo veritatis dolore porro, quaerat quasi.
                         <br />
                         <br />
                         {{-- Images from:
@@ -102,16 +82,16 @@
                 </div>
             </div>
             <div class="flex flex-wrap flex-col-reverse sm:flex-row">
-                 <div class="w-full sm:w-1/2 p-6 mt-6">
+                <div class="w-full sm:w-1/2 p-6 mt-6">
                     <img class="sm:h-64 mx-auto" src="{{ asset('images/auth-image.jpg') }}" />
                 </div>
                 <div class="w-full sm:w-1/2 p-6 mt-6">
                     <div class="align-middle">
                         <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                            Lorem ipsum dolor sit amet
+                            Sejarah Sekolah
                         </h3>
                         <p class="text-gray-600 mb-8">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
+                            Berasal dari rumah sakit angker menjadi sd n 2 sawah bersar Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
                             posuere et sit amet ligula.
                             <br />
                             <br />
@@ -185,10 +165,10 @@
                             tanggal
                         </p>
                         <div class="w-full font-bold text-xl text-gray-800 px-6">
-                            Lorem ipsum dolor sit amet.
+                            Sejaranh Sekolah.
                         </div>
                         <p class="text-gray-800 text-base px-6 mb-5">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
+                            Berasal dari rumah sakit Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
                             posuere et sit amet ligula.
                         </p>
                     </a>
@@ -205,87 +185,91 @@
         </div>
     </section>
 
-    <!-- <section class="bg-gray-100 py-8">
-      <div class="container mx-auto px-2 pt-4 pb-12 text-gray-800">
-        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-          Pricing
-        </h2>
-        <div class="w-full mb-4">
-          <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+    <section class="bg-gray-100 py-8">
+        <div class="container mx-auto px-2 pt-4 pb-12 text-gray-800">
+            <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+                Ekstrakurikuler
+            </h2>
+            <div class="w-full mb-4">
+                <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-center pt-12 my-12 sm:my-4">
+                <div class="flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-4">
+                    <div class="flex-1 bg-white text-gray-600 rounded-t rounded-b-none overflow-hidden shadow">
+                        <div class="p-8 text-3xl font-bold text-center border-b-4">
+                            Badminton
+                        </div>
+                        <ul class="w-full text-center text-sm">
+                            <li class="border-b py-4">Thing</li>
+                            <li class="border-b py-4">Thing</li>
+                            <li class="border-b py-4">Thing</li>
+                        </ul>
+                    </div>
+                    <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+                        <div class="w-full pt-6 text-3xl text-gray-600 font-bold text-center">
+                            1 Trofi
+                            <span class="text-base">untuk satu tahun</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <button
+                                class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                                Lihat Lainnya...
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="flex flex-col w-5/6 lg:w-1/3 mx-auto lg:mx-0 rounded-lg bg-white mt-4 sm:-mt-6 shadow-lg z-10">
+                    <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+                        <div class="w-full p-8 text-3xl font-bold text-center">Basket</div>
+                        <div class="h-1 w-full gradient my-0 py-0 rounded-t"></div>
+                        <ul class="w-full text-center text-base font-bold">
+                            <li class="border-b py-4">Juara 1 antar RT</li>
+                            <li class="border-b py-4">Juara 2 antar sekolah</li>
+                            <li class="border-b py-4">Juara 3 antar jemput</li>
+                            <li class="border-b py-4">dll.</li>
+                        </ul>
+                    </div>
+                    <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+                        <div class="w-full pt-6 text-4xl font-bold text-center">
+                            > 3 Trofi
+                            <span class="text-base">/ per semester</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <button
+                                class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                                Lihat Lainnya...
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-4">
+                    <div class="flex-1 bg-white text-gray-600 rounded-t rounded-b-none overflow-hidden shadow">
+                        <div class="p-8 text-3xl font-bold text-center border-b-4">
+                            Adu mulut
+                        </div>
+                        <ul class="w-full text-center text-sm">
+                            <li class="border-b py-4">Thing</li>
+                            <li class="border-b py-4">Thing</li>
+                            <li class="border-b py-4">Thing</li>
+                        </ul>
+                    </div>
+                    <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+                        <div class="w-full pt-6 text-3xl text-gray-600 font-bold text-center">
+                            > 500 Trofi
+                            <span class="text-base">/ per bulan</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <button
+                                class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                                Lihat Lainnya...
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="flex flex-col sm:flex-row justify-center pt-12 my-12 sm:my-4">
-          <div class="flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-4">
-            <div class="flex-1 bg-white text-gray-600 rounded-t rounded-b-none overflow-hidden shadow">
-              <div class="p-8 text-3xl font-bold text-center border-b-4">
-                Free
-              </div>
-              <ul class="w-full text-center text-sm">
-                <li class="border-b py-4">Thing</li>
-                <li class="border-b py-4">Thing</li>
-                <li class="border-b py-4">Thing</li>
-              </ul>
-            </div>
-            <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-              <div class="w-full pt-6 text-3xl text-gray-600 font-bold text-center">
-                £0
-                <span class="text-base">for one user</span>
-              </div>
-              <div class="flex items-center justify-center">
-                <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                  Sign Up
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="flex flex-col w-5/6 lg:w-1/3 mx-auto lg:mx-0 rounded-lg bg-white mt-4 sm:-mt-6 shadow-lg z-10">
-            <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-              <div class="w-full p-8 text-3xl font-bold text-center">Basic</div>
-              <div class="h-1 w-full gradient my-0 py-0 rounded-t"></div>
-              <ul class="w-full text-center text-base font-bold">
-                <li class="border-b py-4">Thing</li>
-                <li class="border-b py-4">Thing</li>
-                <li class="border-b py-4">Thing</li>
-                <li class="border-b py-4">Thing</li>
-              </ul>
-            </div>
-            <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-              <div class="w-full pt-6 text-4xl font-bold text-center">
-                £x.99
-                <span class="text-base">/ per user</span>
-              </div>
-              <div class="flex items-center justify-center">
-                <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                  Sign Up
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-4">
-            <div class="flex-1 bg-white text-gray-600 rounded-t rounded-b-none overflow-hidden shadow">
-              <div class="p-8 text-3xl font-bold text-center border-b-4">
-                Pro
-              </div>
-              <ul class="w-full text-center text-sm">
-                <li class="border-b py-4">Thing</li>
-                <li class="border-b py-4">Thing</li>
-                <li class="border-b py-4">Thing</li>
-              </ul>
-            </div>
-            <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-              <div class="w-full pt-6 text-3xl text-gray-600 font-bold text-center">
-                £x.99
-                <span class="text-base">/ per user</span>
-              </div>
-              <div class="flex items-center justify-center">
-                <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                  Sign Up
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
+    </section>
 
     <!-- Change the colour #f8fafc to match the previous section colour -->
     <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -329,103 +313,4 @@
             Lihat guru
         </button>
     </section>
-
-    <!--Footer-->
-    <x-user.footer />
-
-    <!-- jQuery if you need it
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  -->
-
-    <script>
-        var scrollpos = window.scrollY;
-        var header = document.getElementById("header");
-        var navLink = document.getElementById("navLink");
-        var navcontent = document.getElementById("nav-content");
-        var navaction = document.getElementById("navAction");
-        // var brandname = document.getElementById("brandname");
-        var toToggle = document.querySelectorAll(".toggleColour");
-
-        document.addEventListener("scroll", function() {
-            /*Apply classes for slide in bar*/
-            scrollpos = window.scrollY;
-
-            if (scrollpos > 10) {
-                header.classList.add("bg-white");
-                header.classList.remove("bg-opacity-50");
-                navLink.classList.add("text-black");
-                navaction.classList.remove("bg-white");
-                navaction.classList.add("gradient");
-                navaction.classList.remove("text-gray-800");
-                navaction.classList.add("text-white");
-                //Use to switch toggleColour colours
-                for (var i = 0; i < toToggle.length; i++) {
-                    toToggle[i].classList.add("text-gray-800");
-                    toToggle[i].classList.remove("text-white");
-                }
-                header.classList.add("shadow");
-                navcontent.classList.remove("bg-gray-100");
-                navcontent.classList.add("bg-white");
-            } else {
-                header.classList.remove("bg-white");
-                header.classList.add("bg-opacity-50");
-                navLink.classList.remove("text-black");
-                navaction.classList.remove("gradient");
-                navaction.classList.add("bg-white");
-                navaction.classList.remove("text-white");
-                navaction.classList.add("text-gray-800");
-                //Use to switch toggleColour colours
-                for (var i = 0; i < toToggle.length; i++) {
-                    toToggle[i].classList.add("text-white");
-                    toToggle[i].classList.remove("text-gray-800");
-                }
-
-                header.classList.remove("shadow");
-                navcontent.classList.remove("bg-white");
-                navcontent.classList.add("bg-gray-100");
-            }
-        });
-    </script>
-
-    <script>
-        /*Toggle dropdown list*/
-        /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
-
-        var navMenuDiv = document.getElementById("nav-content");
-        var navMenu = document.getElementById("nav-toggle");
-
-        document.onclick = check;
-
-        function check(e) {
-            var target = (e && e.target) || (event && event.srcElement);
-
-            //Nav Menu
-            if (!checkParent(target, navMenuDiv)) {
-                // click NOT on the menu
-                if (checkParent(target, navMenu)) {
-                    // click on the link
-                    if (navMenuDiv.classList.contains("hidden")) {
-                        navMenuDiv.classList.remove("hidden");
-                    } else {
-                        navMenuDiv.classList.add("hidden");
-                    }
-                } else {
-                    // click both outside link and outside menu, hide menu
-                    navMenuDiv.classList.add("hidden");
-                }
-            }
-        }
-
-        function checkParent(t, elm) {
-            while (t.parentNode) {
-                if (t == elm) {
-                    return true;
-                }
-                t = t.parentNode;
-            }
-            return false;
-        }
-    </script>
-</body>
-
-</html>
+</x-user-layout>
