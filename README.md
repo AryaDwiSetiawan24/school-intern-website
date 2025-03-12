@@ -1,12 +1,12 @@
 # Langkah-langkah menjalankan projek Laravel 11
 
 
-Sebelum memmulai mengerjakan projek disarankan menggunakan **GitHub Dekstop** (aplokasi) untuk mempermudah pekerjaan.
+Sebelum memmulai mengerjakan projek disarankan menggunakan **GitHub Dekstop** (aplikasi) untuk mempermudah pekerjaan.
 
 
 ## Table of contents
 
-* [Clone projek](#clone-projek)
+* [Cara Clone projek](#cara-clone-projek-dengan-benar)
   * [Konfigurasi file .env](#konfigurasi-file-env)
   * [Install Laravel dependencies](#install-laravel-dependencies)
   * [Migrate the tables](#migrate-the-tables)
@@ -58,4 +58,4 @@ Seteleh semua itu baru jalankan perintah berikut:
 ## Credits
 
 - [Nucleo](https://nucleoapp.com/)
-- [ADScode]
+- [ADScode](#)
