@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             // DashboardTableSeeder::class,
             UserSeeder::class,
             // BeritaSeeder::class,
-            // PegawaiSeeder::class,
+            PegawaiSeeder::class,
         ]);
     }
 }
