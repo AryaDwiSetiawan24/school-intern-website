@@ -10,4 +10,4 @@ Route::get('/', [DashboardController::class, 'index'])->name('userDashboard');
 Route::get('/profil', [DashboardController::class, 'profil'])->name('userProfil');
 
 // Halaman berita
-Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
+Route::get('/berita', [BeritaController::class, 'index'])->name('berita'); // tampilan semua berita

@@ -24,10 +24,33 @@
                     <a class="inline-block font-bold hover:text-pink-500 hover:text-underline py-2 px-4"
                         href="/">Beranda</a>
                 </li>
-                <li class="mr-3">
-                    <a class="inline-block font-bold hover:text-pink-500 hover:text-underline py-2 px-4"
-                        href="/profil">Profil Sekolah</a>
+                <li class="mr-3 relative">
+                    <a class="inline-block font-bold hover:text-pink-500 hover:text-underline py-2 px-4 cursor-pointer"
+                        onclick="toggleDropdown()">Profil Sekolah</a>
+                    <ul id="dropdownMenu" class="absolute hidden text-gray-700 pt-1 bg-white">
+                        <li class="">
+                            <a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                                href="/profil/kepala-sekolah">Profil Kepala Sekolah</a>
+                        </li>
+                        <li class="">
+                            <a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                                href="/profil/wakil-kepala-sekolah">Profil Wakil Kepala Sekolah</a>
+                        </li>
+                    </ul>
                 </li>
+
+                <script>
+                    function toggleDropdown() {
+                        var dropdownMenu = document.getElementById("dropdownMenu");
+                        if (dropdownMenu.classList.contains("hidden")) {
+                            dropdownMenu.classList.remove("hidden");
+                            dropdownMenu.classList.add("block");
+                        } else {
+                            dropdownMenu.classList.remove("block");
+                            dropdownMenu.classList.add("hidden");
+                        }
+                    }
+                </script>
                 <li class="mr-3">
                     <a class="inline-block font-bold hover:text-pink-500 hover:text-underline py-2 px-4"
                         href="/berita">Berita</a>
