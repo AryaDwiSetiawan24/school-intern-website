@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="container mx-auto p-4">
         <h1 class="text-2xl font-bold mb-4">{{ $berita->judul }}</h1>
-        <p class="mb-4">{{ $berita->isi }}</p>
+        <p class="mb-4">{!! $berita->isi !!}</p>
         @if($berita->gambar)
         <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar Berita" class="mb-4 w-1/4">
         @endif

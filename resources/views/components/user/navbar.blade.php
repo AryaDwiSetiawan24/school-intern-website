@@ -84,7 +84,7 @@
                     </a>
                     <ul class="absolute hidden bg-white text-gray-800 mt-1 py-2 rounded-lg shadow-lg hover:block w-40 dropdown-menu">
                         <li>
-                            <a href="/hubungi" class="block px-4 py-2 hover:bg-gray-100">Kontak</a>
+                            <a href="/kontak" class="block px-4 py-2 hover:bg-gray-100">Kontak</a>
                         </li>
                         <li>
                             <a href="/aduan" class="block px-4 py-2 hover:bg-gray-100">Pengaduan</a>
