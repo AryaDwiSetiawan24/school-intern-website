@@ -94,82 +94,35 @@
             <div class="w-full mb-4">
                 <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
             </div>
+            
+            @foreach ($beritas as $berita)
             <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
                 <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-                    <a href="#" class="flex flex-wrap no-underline hover:no-underline">
+                    <a href="{{ route('berita.show', $berita->id) }}" class="flex flex-wrap no-underline hover:no-underline">
                         <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                            tanggal
+                            {{ $berita->created_at->format('d M Y') }}
                         </p>
                         <div class="w-full font-bold text-xl text-gray-800 px-6">
-                            Judl berita
+                            {{ $berita->judul }}
                         </div>
                         <p class="text-gray-800 text-base px-6 mb-5">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                            posuere et sit amet ligula.
-                        </p>
-                    </a>
-                </div>
-                <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-                    <div class="flex items-center justify-start">
-                        <button
-                            class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                            Selengkapnya...
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-                <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-                    <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-                        <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                            tanggal
-                        </p>
-                        <div class="w-full font-bold text-xl text-gray-800 px-6">
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                        <p class="text-gray-800 text-base px-6 mb-5">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                            posuere et sit amet ligula.
+                            {{ Str::limit($berita->isi, 100) }}
                         </p>
                     </a>
                 </div>
                 <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
                     <div class="flex items-center justify-center">
-                        <button
+                        <a href="{{ route('berita.show', $berita->id) }}"
                             class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                             Selengkapnya...
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-                <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-                    <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-                        <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                            tanggal
-                        </p>
-                        <div class="w-full font-bold text-xl text-gray-800 px-6">
-                            Sejaranh Sekolah.
-                        </div>
-                        <p class="text-gray-800 text-base px-6 mb-5">
-                            Berasal dari rumah sakit Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at
-                            ipsum eu nunc commodo
-                            posuere et sit amet ligula.
-                        </p>
-                    </a>
-                </div>
-                <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-                    <div class="flex items-center justify-end">
-                        <button
-                            class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                            Selengkapnya...
-                        </button>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+            
         </div>
     </section>
-
     <section class="bg-gray-100 py-8">
         <div class="container mx-auto px-2 pt-4 pb-12 text-gray-800">
             <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">

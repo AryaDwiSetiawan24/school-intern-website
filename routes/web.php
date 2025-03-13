@@ -12,3 +12,4 @@ Route::get('/profil', [DashboardController::class, 'profil'])->name('userProfil'
 // Halaman berita
 Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
 Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai.index');
+
