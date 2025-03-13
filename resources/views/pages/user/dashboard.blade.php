@@ -1,7 +1,7 @@
 {{-- halaman dashboard user --}}
 <x-user-layout>
     <div class="pt-24 bg-cover bg-center h-screen"
-        style="background-image: url('{{ asset('images/education.jpg') }}');">
+        style="background-image: url('{{ asset('images/education.jpg') }}'); background-attachment: fixed" id="home">
         <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
             <!--Left Col-->
             <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
@@ -12,15 +12,9 @@
                 <p class="leading-normal text-2xl mb-8">
                     Kurikulum disusun dengan baik agar membantu siswa untuk memahami materi yang diajarkan.
                 </p>
-                <button
-                    class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                    Daftar Sekarang
-                </button>
             </div>
             <!--Right Col-->
-            <div class="w-full md:w-3/5 py-6 text-center">
-                <img class="w-full md:w-4/6 md:ml-32 z-50" src="{{ asset('images/usm.png') }}" />
-            </div>
+
         </div>
     </div>
     {{-- wave effect --}}
@@ -50,7 +44,7 @@
     {{-- section 1 --}}
     <section class="bg-white border-b py-8">
         <div class="container max-w-5xl mx-auto m-8">
-            <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+            <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800" id="sambutan">
                 Sambutan Kepala Sekolah
             </h2>
             <div class="w-full mb-4">
@@ -62,19 +56,10 @@
                         Bp. Slamet Riyati S.pd M.pls
                     </h3>
                     <p class="text-gray-600 mb-8">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                        posuere et sit amet ligula. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint amet
-                        laboriosam quaerat quasi. Provident, consequuntur ipsam vel voluptatibus quia quisquam ipsa
-                        assumenda sunt officiis nemo eius ducimus corrupti dolore eos. Lorem, ipsum dolor sit amet
-                        consectetur adipisicing elit. Totam cupiditate rerum alias nisi non. Consequuntur eum
-                        perferendis sit tempora ipsum ad delectus dicta, quibusdam veniam repellat tempore deleniti
-                        atque molestiae? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempore
-                        quibusdam itaque earum eaque ut cumque impedit numquam, molestias dicta debitis praesentium
-                        libero nihil illo veritatis dolore porro, quaerat quasi.
+                        {{ Str::limit('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint amet laboriosam quaerat quasi. Provident, consequuntur ipsam vel voluptatibus quia quisquam ipsa assumenda sunt officiis nemo eius ducimus corrupti dolore eos. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam cupiditate rerum alias nisi non. Consequuntur eum perferendis sit tempora ipsum ad delectus dicta, quibusdam veniam repellat tempore deleniti atque molestiae? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempore quibusdam itaque earum eaque ut cumque impedit numquam, molestias dicta debitis praesentium libero nihil illo veritatis dolore porro, quaerat quasi.', 600) }}
                         <br />
                         <br />
-                        {{-- Images from:
-                        <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a> --}}
+                        <a class="text-pink-500 underline" href="#">lihat lainnya</a>
                     </p>
                 </div>
                 <div class="w-full sm:w-1/2 p-6">
@@ -91,8 +76,7 @@
                             Sejarah Sekolah
                         </h3>
                         <p class="text-gray-600 mb-8">
-                            Berasal dari rumah sakit angker menjadi sd n 2 sawah bersar Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                            posuere et sit amet ligula.
+                            {{ Str::limit('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint amet laboriosam quaerat quasi. Provident, consequuntur ipsam vel voluptatibus quia quisquam ipsa assumenda sunt officiis nemo eius ducimus corrupti dolore eos. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam cupiditate rerum alias nisi non. Consequuntur eum perferendis sit tempora ipsum ad delectus dicta, quibusdam veniam repellat tempore deleniti atque molestiae? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempore quibusdam itaque earum eaque ut cumque impedit numquam, molestias dicta debitis praesentium libero nihil illo veritatis dolore porro, quaerat quasi.', 500) }}
                             <br />
                             <br />
                             <a class="text-pink-500 underline" href="#">lihat lainnya</a>
@@ -168,7 +152,8 @@
                             Sejaranh Sekolah.
                         </div>
                         <p class="text-gray-800 text-base px-6 mb-5">
-                            Berasal dari rumah sakit Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
+                            Berasal dari rumah sakit Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at
+                            ipsum eu nunc commodo
                             posuere et sit amet ligula.
                         </p>
                     </a>
@@ -298,19 +283,61 @@
             </g>
         </g>
     </svg>
-    <section class="container mx-auto text-center py-6 mb-12">
-        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
-            Daftar guru
-        </h2>
-        <div class="w-full mb-4">
-            <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
+    <section class="container mx-auto text-center py-8 px-4">
+    <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
+        Daftar Guru
+    </h2>
+    <div class="w-full mb-4">
+        <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
+    </div>
+    <h3 class="my-4 text-3xl leading-tight">
+        Guru adalah pahlawan tanpa tanda jasa!
+    </h3>
+    <div class="container mx-auto py-8">
+        <h1 class="text-center text-2xl font-semibold mb-8">Guru dan Karyawan</h1>
+        <div class="relative px-10">
+            <button id="scrollLeft" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full z-10">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="flex overflow-x-auto scroll-container gap-6 pb-6">
+                @foreach ($pegawai as $staff)
+                <div class="text-center flex-shrink-0 w-48 mx-2">
+                    <img alt="{{ $staff->nama }}" class="rounded-lg mb-4 w-full h-64 object-cover object-center" src="{{ asset('uploads/'.$staff->foto) }}" />
+                    <h2 class="font-semibold text-lg">{{ $staff->nama }}</h2>
+                    <p class="text-sm text-gray-200">{{ $staff->jabatan }}</p>
+                    <p class="text-xs text-gray-300">{{ $staff->alamat }}</p>
+                </div>
+                @endforeach
+            </div>
+            <button id="scrollRight" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full z-10">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
-        <h3 class="my-4 text-3xl leading-tight">
-            Guru adalah pahlawan tanpa tanjda jasa!
-        </h3>
-        <button
-            class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-            Lihat guru
-        </button>
-    </section>
+    </div>
+    <button
+        onclick="window.location.href='/pegawai';"
+        class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+        Lihat Guru
+    </button>
+</section>
+
+<script>
+    const scrollContainer = document.querySelector('.scroll-container');
+    const scrollLeft = document.getElementById('scrollLeft');
+    const scrollRight = document.getElementById('scrollRight');
+
+    scrollLeft.addEventListener('click', () => {
+        scrollContainer.scrollBy({
+            left: -300,
+            behavior: 'smooth'
+        });
+    });
+
+    scrollRight.addEventListener('click', () => {
+        scrollContainer.scrollBy({
+            left: 300,
+            behavior: 'smooth'
+        });
+    });
+</script>
 </x-user-layout>
