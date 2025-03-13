@@ -1,7 +1,6 @@
 {{-- halaman dashboard user --}}
 <x-user-layout>
-    <div class="pt-24 bg-cover bg-center h-screen"
-        style="background-image: url('{{ asset('images/education.jpg') }}');">
+    <div class="pt-24 bg-cover bg-center h-screen" style="background-image: url('{{ asset('images/education.jpg') }}');" id="home">
         <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
             <!--Left Col-->
             <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
@@ -12,10 +11,6 @@
                 <p class="leading-normal text-2xl mb-8">
                     Kurikulum disusun dengan baik agar membantu siswa untuk memahami materi yang diajarkan.
                 </p>
-                <button
-                    class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                    Daftar Sekarang
-                </button>
             </div>
             <!--Right Col-->
             <div class="w-full md:w-3/5 py-6 text-center">
@@ -50,7 +45,7 @@
     {{-- section 1 --}}
     <section class="bg-white border-b py-8">
         <div class="container max-w-5xl mx-auto m-8">
-            <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+            <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800" id="sambutan">
                 Sambutan Kepala Sekolah
             </h2>
             <div class="w-full mb-4">
@@ -62,19 +57,10 @@
                         Bp. Slamet Riyati S.pd M.pls
                     </h3>
                     <p class="text-gray-600 mb-8">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                        posuere et sit amet ligula. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint amet
-                        laboriosam quaerat quasi. Provident, consequuntur ipsam vel voluptatibus quia quisquam ipsa
-                        assumenda sunt officiis nemo eius ducimus corrupti dolore eos. Lorem, ipsum dolor sit amet
-                        consectetur adipisicing elit. Totam cupiditate rerum alias nisi non. Consequuntur eum
-                        perferendis sit tempora ipsum ad delectus dicta, quibusdam veniam repellat tempore deleniti
-                        atque molestiae? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempore
-                        quibusdam itaque earum eaque ut cumque impedit numquam, molestias dicta debitis praesentium
-                        libero nihil illo veritatis dolore porro, quaerat quasi.
+                        {{ Str::limit('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint amet laboriosam quaerat quasi. Provident, consequuntur ipsam vel voluptatibus quia quisquam ipsa assumenda sunt officiis nemo eius ducimus corrupti dolore eos. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam cupiditate rerum alias nisi non. Consequuntur eum perferendis sit tempora ipsum ad delectus dicta, quibusdam veniam repellat tempore deleniti atque molestiae? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempore quibusdam itaque earum eaque ut cumque impedit numquam, molestias dicta debitis praesentium libero nihil illo veritatis dolore porro, quaerat quasi.', 600) }}
                         <br />
                         <br />
-                        {{-- Images from:
-                        <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a> --}}
+                        <a class="text-pink-500 underline" href="#">lihat lainnya</a>
                     </p>
                 </div>
                 <div class="w-full sm:w-1/2 p-6">
@@ -91,8 +77,7 @@
                             Sejarah Sekolah
                         </h3>
                         <p class="text-gray-600 mb-8">
-                            Berasal dari rumah sakit angker menjadi sd n 2 sawah bersar Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
-                            posuere et sit amet ligula.
+                            {{ Str::limit('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint amet laboriosam quaerat quasi. Provident, consequuntur ipsam vel voluptatibus quia quisquam ipsa assumenda sunt officiis nemo eius ducimus corrupti dolore eos. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam cupiditate rerum alias nisi non. Consequuntur eum perferendis sit tempora ipsum ad delectus dicta, quibusdam veniam repellat tempore deleniti atque molestiae? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempore quibusdam itaque earum eaque ut cumque impedit numquam, molestias dicta debitis praesentium libero nihil illo veritatis dolore porro, quaerat quasi.', 500) }}
                             <br />
                             <br />
                             <a class="text-pink-500 underline" href="#">lihat lainnya</a>
@@ -168,7 +153,8 @@
                             Sejaranh Sekolah.
                         </div>
                         <p class="text-gray-800 text-base px-6 mb-5">
-                            Berasal dari rumah sakit Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo
+                            Berasal dari rumah sakit Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at
+                            ipsum eu nunc commodo
                             posuere et sit amet ligula.
                         </p>
                     </a>
