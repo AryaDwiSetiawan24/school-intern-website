@@ -8,8 +8,15 @@ Route::redirect('/', 'login');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
-    Route::get('/dashboard/analytics', [AdminController::class, 'analytics'])->name('analytics');
-    Route::get('/dashboard/fintech', [AdminController::class, 'fintech'])->name('fintech');
+
+    // Berita
+    Route::get('/berita/create', [AdminController::class, 'create'])->name('berita.create');
+    Route::get('/check-slug', [AdminController::class, 'checkSlug'])->name('checkSlug');
+    Route::post('/berita', [AdminController::class, 'store'])->name('berita.store');
+    Route::get('/berita/{id}', [AdminController::class, 'show'])->name('berita.show');
+    Route::get('/berita/{id}/edit', [AdminController::class, 'edit'])->name('berita.edit');
+    Route::put('/berita/{id}', [AdminController::class, 'update'])->name('berita.update');
+    Route::delete('/berita/{id}', [AdminController::class, 'destroy'])->name('berita.destroy');
 
     Route::get('/settings/account', function () {
         return view('pages/settings/account');
