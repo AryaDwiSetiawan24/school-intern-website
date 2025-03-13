@@ -14,4 +14,3 @@ Route::get('/profil', [DashboardController::class, 'profil'])->name('userProfil'
 // Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
 Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
 Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai.index');
-
