@@ -1,4 +1,7 @@
 <x-user-layout>
+    <div class="container mx-auto p-4">
+        portal berita yang menampilkan semua berita yang ada
+    </div>
         <div class="container mt-4">
             <h2 class="mb-4">Daftar Berita</h2>
             <table class="table table-bordered">
