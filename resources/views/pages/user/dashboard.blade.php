@@ -1,6 +1,7 @@
 {{-- halaman dashboard user --}}
 <x-user-layout>
-    <div class="pt-24 bg-cover bg-center h-screen" style="background-image: url('{{ asset('images/education.jpg') }}');" id="home">
+    <div class="pt-24 bg-cover bg-center h-screen"
+        style="background-image: url('{{ asset('images/education.jpg') }}'); background-attachment: fixed" id="home">
         <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
             <!--Left Col-->
             <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
@@ -13,9 +14,7 @@
                 </p>
             </div>
             <!--Right Col-->
-            <div class="w-full md:w-3/5 py-6 text-center">
-                <img class="w-full md:w-4/6 md:ml-32 z-50" src="{{ asset('images/usm.png') }}" />
-            </div>
+
         </div>
     </div>
     {{-- wave effect --}}
@@ -284,19 +283,61 @@
             </g>
         </g>
     </svg>
-    <section class="container mx-auto text-center py-6 mb-12">
-        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
-            Daftar guru
-        </h2>
-        <div class="w-full mb-4">
-            <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
+    <section class="container mx-auto text-center py-8 px-4">
+    <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
+        Daftar Guru
+    </h2>
+    <div class="w-full mb-4">
+        <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
+    </div>
+    <h3 class="my-4 text-3xl leading-tight">
+        Guru adalah pahlawan tanpa tanda jasa!
+    </h3>
+    <div class="container mx-auto py-8">
+        <h1 class="text-center text-2xl font-semibold mb-8">Guru dan Karyawan</h1>
+        <div class="relative px-10">
+            <button id="scrollLeft" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full z-10">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="flex overflow-x-auto scroll-container gap-6 pb-6">
+                @foreach ($pegawai as $staff)
+                <div class="text-center flex-shrink-0 w-48 mx-2">
+                    <img alt="{{ $staff->nama }}" class="rounded-lg mb-4 w-full h-64 object-cover object-center" src="{{ asset('uploads/'.$staff->foto) }}" />
+                    <h2 class="font-semibold text-lg">{{ $staff->nama }}</h2>
+                    <p class="text-sm text-gray-200">{{ $staff->jabatan }}</p>
+                    <p class="text-xs text-gray-300">{{ $staff->alamat }}</p>
+                </div>
+                @endforeach
+            </div>
+            <button id="scrollRight" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full z-10">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
-        <h3 class="my-4 text-3xl leading-tight">
-            Guru adalah pahlawan tanpa tanjda jasa!
-        </h3>
-        <button
-            class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-            Lihat guru
-        </button>
-    </section>
+    </div>
+    <button
+        onclick="window.location.href='/pegawai';"
+        class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+        Lihat Guru
+    </button>
+</section>
+
+<script>
+    const scrollContainer = document.querySelector('.scroll-container');
+    const scrollLeft = document.getElementById('scrollLeft');
+    const scrollRight = document.getElementById('scrollRight');
+
+    scrollLeft.addEventListener('click', () => {
+        scrollContainer.scrollBy({
+            left: -300,
+            behavior: 'smooth'
+        });
+    });
+
+    scrollRight.addEventListener('click', () => {
+        scrollContainer.scrollBy({
+            left: 300,
+            behavior: 'smooth'
+        });
+    });
+</script>
 </x-user-layout>
