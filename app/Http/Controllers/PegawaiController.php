@@ -8,9 +8,11 @@ use App\Models\pegawai;
 
 class PegawaiController extends Controller
 {
-    public function index()
-    {
-        $pegawai = Pegawai::all();
-        return view('pages/user/pegawai', compact('pegawai'));
-    }
+    // pindah di dashboard controller
+    
+    // public function index()
+    // {
+    //     $pegawai = Pegawai::all();
+    //     return view('pages/user/pegawai', compact('pegawai'));
+    // }
 }
