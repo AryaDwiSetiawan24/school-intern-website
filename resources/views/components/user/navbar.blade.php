@@ -39,7 +39,7 @@
                     </a>
                     <ul class="absolute hidden bg-white text-gray-800 mt-1 py-2 rounded-lg shadow-lg hover:block w-40 dropdown-menu">
                         <li>
-                            <a href="/visi_misi" class="block px-4 py-2 hover:bg-gray-500">Visi Misi</a>
+                            <a href="/visi-misi" class="block px-4 py-2 hover:bg-gray-500">Visi Misi</a>
                         </li>
                         <li>
                             <a href="/sejarah" class="block px-4 py-2 hover:bg-gray-500">Sejarah</a>
@@ -66,10 +66,10 @@
                     </a>
                     <ul class="absolute hidden bg-white text-gray-800 mt-1 py-2 rounded-lg shadow-lg hover:block w-40 dropdown-menu">
                         <li>
-                            <a href="/foto" class="block px-4 py-2 hover:bg-gray-100">Foto</a>
+                            <a href="/galeri-foto" class="block px-4 py-2 hover:bg-gray-100">Foto</a>
                         </li>
                         <li>
-                            <a href="/video" class="block px-4 py-2 hover:bg-gray-100">Video</a>
+                            <a href="/galeri-video" class="block px-4 py-2 hover:bg-gray-100">Video</a>
                         </li>
                     </ul>
                 </li>
@@ -84,7 +84,7 @@
                     </a>
                     <ul class="absolute hidden bg-white text-gray-800 mt-1 py-2 rounded-lg shadow-lg hover:block w-40 dropdown-menu">
                         <li>
-                            <a href="/hubungi" class="block px-4 py-2 hover:bg-gray-100">Kontak</a>
+                            <a href="/kontak" class="block px-4 py-2 hover:bg-gray-100">Kontak</a>
                         </li>
                         <li>
                             <a href="/aduan" class="block px-4 py-2 hover:bg-gray-100">Pengaduan</a>
