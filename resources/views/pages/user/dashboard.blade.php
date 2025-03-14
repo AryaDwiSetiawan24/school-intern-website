@@ -56,10 +56,10 @@
                         Bp. Slamet Riyati S.pd M.pls
                     </h3>
                     <p class="text-gray-600 mb-8">
-                        {{ Str::limit('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint amet laboriosam quaerat quasi. Provident, consequuntur ipsam vel voluptatibus quia quisquam ipsa assumenda sunt officiis nemo eius ducimus corrupti dolore eos. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam cupiditate rerum alias nisi non. Consequuntur eum perferendis sit tempora ipsum ad delectus dicta, quibusdam veniam repellat tempore deleniti atque molestiae? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempore quibusdam itaque earum eaque ut cumque impedit numquam, molestias dicta debitis praesentium libero nihil illo veritatis dolore porro, quaerat quasi.', 600) }}
+                        {{ Str::limit('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint amet laboriosam quaerat quasi. Provident, consequuntur ipsam vel voluptatibus quia quisquam ipsa assumenda sunt officiis nemo eius ducimus corrupti dolore eos. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam cupiditate rerum alias nisi non. Consequuntur eum perferendis sit tempora ipsum ad delectus dicta, quibusdam veniam repellat tempore deleniti atque molestiae? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempore quibusdam itaque earum eaque ut cumque impedit numquam, molestias dicta debitis praesentium libero nihil illo veritatis dolore porro, quaerat quasi.', 550) }}
                         <br />
                         <br />
-                        <a class="text-pink-500 underline" href="#">lihat lainnya</a>
+                        <a class="text-pink-500 underline" href="#">lihat lainnya &raquo;</a>
                     </p>
                 </div>
                 <div class="w-full sm:w-1/2 p-6">
@@ -76,10 +76,10 @@
                             Sejarah Sekolah
                         </h3>
                         <p class="text-gray-600 mb-8">
-                            {{ Str::limit('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint amet laboriosam quaerat quasi. Provident, consequuntur ipsam vel voluptatibus quia quisquam ipsa assumenda sunt officiis nemo eius ducimus corrupti dolore eos. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam cupiditate rerum alias nisi non. Consequuntur eum perferendis sit tempora ipsum ad delectus dicta, quibusdam veniam repellat tempore deleniti atque molestiae? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempore quibusdam itaque earum eaque ut cumque impedit numquam, molestias dicta debitis praesentium libero nihil illo veritatis dolore porro, quaerat quasi.', 500) }}
+                            {{ Str::limit('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint amet laboriosam quaerat quasi. Provident, consequuntur ipsam vel voluptatibus quia quisquam ipsa assumenda sunt officiis nemo eius ducimus corrupti dolore eos. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam cupiditate rerum alias nisi non. Consequuntur eum perferendis sit tempora ipsum ad delectus dicta, quibusdam veniam repellat tempore deleniti atque molestiae? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempore quibusdam itaque earum eaque ut cumque impedit numquam, molestias dicta debitis praesentium libero nihil illo veritatis dolore porro, quaerat quasi.', 550) }}
                             <br />
                             <br />
-                            <a class="text-pink-500 underline" href="#">lihat lainnya</a>
+                            <a class="text-pink-500 underline" href="#">lihat lainnya &raquo;</a>
                         </p>
                     </div>
                 </div>
@@ -98,25 +98,21 @@
             @foreach ($beritas as $berita)
             <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
                 <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-                    <a href="{{ route('berita.show', $berita->id) }}" class="flex flex-wrap no-underline hover:no-underline">
+                    <a href="{{ route('berita.userShow', $berita->slug) }}" class="flex flex-wrap no-underline hover:no-underline">
                         <p class="w-full text-gray-600 text-xs md:text-sm px-6">
                             {{ $berita->created_at->format('d M Y') }}
                         </p>
+                        <div class="flex justify-center w-full mt-1">
+                            <img src="{{ asset('storage/'.$berita->gambar) }}" class="max-h-56 max-w-full w-auto h-auto rounded-t pb-6"/>
+                        </div>
                         <div class="w-full font-bold text-xl text-gray-800 px-6">
                             {{ $berita->judul }}
                         </div>
-                        <p class="text-gray-800 text-base px-6 mb-5">
-                            {{ Str::limit($berita->isi, 100) }}
+                        <p class="text-gray-800 text-base px-6 mb-1">
+                            {{ Str::limit($berita->isi, 105) }}
                         </p>
                     </a>
-                </div>
-                <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-                    <div class="flex items-center justify-center">
-                        <a href="{{ route('berita.show', $berita->id) }}"
-                            class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                            Selengkapnya...
-                        </a>
-                    </div>
+                    <a class="m-6 text-pink-500 underline hover:no-underline" href="{{ route('berita.userShow', $berita->slug) }}">lihat lainnya &raquo;</a>
                 </div>
             </div>
             @endforeach
