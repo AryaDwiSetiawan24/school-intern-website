@@ -45,7 +45,7 @@
             </div>
             <div class="mb-4">
                 <label for="isi" class="block text-gray-700">Isi</label>
-                <textarea name="isi" id="isi" class="w-full px-4 py-2 border rounded" required></textarea>
+                <textarea name="isi" id="isi" class="w-full px-4 py-2 border rounded"></textarea>
             </div>
             <input type="hidden" name="slug" id="slug"> {{-- slug akan diisi otomatis dari kode javascript dibawah --}}
             <div class="mb-4">
@@ -57,14 +57,6 @@
     </div>
 
     {{-- untuk mengisi slug otomatis berdasarkan judul --}}
-    {{-- <script>
-        document.getElementById('judul').addEventListener('input', function() {
-            var judul = this.value;
-            var slug = judul.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
-            document.getElementById('slug').value = slug;
-        });
-    </script> --}}
-
     <script>
         document.getElementById('judul').addEventListener('input', function() {
             var judul = this.value;
@@ -98,5 +90,15 @@
 
             updateSlug();
         });
+    </script>
+
+    {{-- CKEditor --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#isi'))
+            .catch(error => {
+                console.error(error);
+            });
     </script>
 </x-app-layout>

@@ -4,7 +4,7 @@
         style="background-image: url('{{ asset('images/education.jpg') }}'); background-attachment: fixed">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 bg-cover bg-center" aria-hidden="true">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-teal-900/80"></div>
+            <div class="absolute inset-0 "></div>
         </div>
 
         <!-- Hero Content -->
