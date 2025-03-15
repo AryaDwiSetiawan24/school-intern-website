@@ -22,7 +22,9 @@ Buka projek di GitHub (browser) lalu klik pada tombol hijau bertuliskan **Code**
 
 Pastikan konfigurasi database pada file .env seperti ``DB_DATABASE`` database dan ``DB_USERNAME``. 
 
-Untuk lebih mudah dapat mengganti ``DB_CONNECTION=mysql`` menjadi ``DB_CONNECTION=sqlite`` dan komentari/hapus konfigurasi dibawahnya sampai ``DB_PASSWORD`` (opsional), untuk memudahkan koneksi database saja.
+(opsional) untuk memudahkan koneksi database saja
+jika ingin lebih mudah dapat mengganti ``DB_CONNECTION=mysql`` menjadi ``DB_CONNECTION=sqlite`` dan komentari/hapus konfigurasi dibawahnya sampai ``DB_PASSWORD``, buat file baru dengan nama ``database.sqlite`` di folde database.
+**NB:** Jika menggunakan ``sqlite`` dapat mengunduh tools [TablePlus](https://tableplus.com/) untuk mengakses database.
 
 ### Install Laravel dependencies
 
