@@ -48,7 +48,7 @@
                 @foreach ($pegawai as $staff)
                 <div class="staff-item guru" data-aos="fade-up" data-aos-delay="100">
                     <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer transition-all duration-300 hover:shadow-xl">
-                        <img src="{{ asset('uploads/'.$staff->foto) }}" alt="{{ $staff->nama }}" class="w-full h-64 object-cover transition-all duration-500 group-hover:scale-110">
+                        <img src="{{ ($staff->foto) ? asset('storage/'.$staff->foto) : 'https://placehold.co/200x300?text=No+Image' }}" alt="{{ $staff->nama }}" class="w-full h-64 object-cover transition-all duration-500 group-hover:scale-110">
                     </div>
                     <div class="p-4 w-full text-black text-center">
                         <h3 class="font-semibold text-lg">{{ $staff->nama }}</h3>
