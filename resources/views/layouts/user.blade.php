@@ -18,13 +18,16 @@
     <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
     <style>
         .gradient {
-            /* background: linear-gradient(90deg, #d53369 0%, #daae51 100%); */
+            background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+        }
+
+        .base-color {
             background: rgba(0, 0, 0, 0.801);
         }
     </style>
 </head>
 
-<body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+<body class="leading-normal tracking-normal text-white base-color" style="font-family: 'Source Sans Pro', sans-serif;">
     <!--Nav-->
     <x-user.navbar />
 
