@@ -87,18 +87,18 @@
                 Berita
             </h2>
             <div class="w-full mb-4">
-                <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+                <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div> {{-- decorate line --}}
             </div>
             
             @foreach ($beritas as $berita)
             <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-                <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-                    <a href="{{ route('berita.userShow', $berita->slug) }}" class="flex flex-wrap no-underline hover:no-underline">
+                <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg transition-all duration-500 hover:scale-105">
+                    <a href="{{ route('berita.show', $berita->slug) }}" class="flex flex-wrap no-underline hover:no-underline">
                         <p class="w-full text-gray-600 text-xs md:text-sm px-6">
                             {{ $berita->created_at->format('d M Y') }}
                         </p>
                         <div class="flex justify-center w-full mt-1">
-                            <img src="{{ asset('storage/'.$berita->gambar) }}" class="max-h-56 max-w-full w-auto h-auto rounded-t pb-6"/>
+                            <img src="{{ ($berita->gambar) ? asset('storage/'.$berita->gambar) : 'https://placehold.co/600x400?text=No+Image' }}" class="max-h-56 max-w-full w-auto h-auto rounded-t pb-6"/>
                         </div>
                         <div class="w-full font-bold text-xl text-gray-800 px-6">
                             {{ $berita->judul }}
@@ -107,7 +107,7 @@
                             {{ Str::limit($berita->isi, 105) }}
                         </p>
                     </a>
-                    <a class="m-6 text-pink-500 underline hover:no-underline" href="{{ route('berita.userShow', $berita->slug) }}">lihat lainnya &raquo;</a>
+                    <a class="m-6 text-pink-500 underline hover:no-underline" href="{{ route('berita.show', $berita->slug) }}">lihat lainnya &raquo;</a>
                 </div>
             </div>
             @endforeach
@@ -246,7 +246,7 @@
             <div class="flex overflow-x-auto scroll-container gap-6 pb-6">
                 @foreach ($pegawai as $staff)
                 <div class="text-center flex-shrink-0 w-48 mx-2">
-                    <img alt="{{ $staff->nama }}" class="rounded-lg mb-4 w-full h-64 object-cover object-center" src="{{ asset('uploads/'.$staff->foto) }}" />
+                    <img alt="{{ $staff->nama }}" class="rounded-lg mb-4 w-full h-64 object-cover object-center" src="{{ ($staff->foto) ? asset('storage/'.$staff->foto) : 'https://placehold.co/200x300?text=No+Image' }}" />
                     <h2 class="font-semibold text-lg">{{ $staff->nama }}</h2>
                     <p class="text-sm text-gray-200">{{ $staff->jabatan }}</p>
                     <p class="text-xs text-gray-300">{{ $staff->alamat }}</p>

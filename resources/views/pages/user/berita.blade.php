@@ -1,6 +1,6 @@
 <x-user-layout>
     <div class="pt-24 px-4">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="max-w-6xl mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach ($beritas as $berita)
                 <div class="bg-white shadow-lg rounded-lg overflow-hidden">
                     <div class="relative">
