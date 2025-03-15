@@ -11,7 +11,7 @@
             </div>
             <div class="mb-4">
                 <label for="isi" class="block text-gray-700">Isi</label>
-                <textarea name="isi" id="isi" class="w-full px-4 py-2 border rounded" required>{{ $berita->isi }}</textarea>
+                <textarea name="isi" id="isi" class="h-54 w-full px-4 py-2 border rounded" required>{{ $berita->isi }}</textarea>
             </div>
             <div class="mb-4">
                 <label for="slug" class="block text-gray-700">Slug</label>
@@ -22,7 +22,7 @@
                 <label for="gambar" class="block text-gray-700">Gambar</label>
                 <input type="file" name="gambar" id="gambar" class="w-full px-4 py-2 border rounded">
                 @if ($berita->gambar)
-                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar Berita" class="mt-4">
+                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar Berita" class="mb-4 w-1/4">
                 @endif
             </div>
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Update</button>
