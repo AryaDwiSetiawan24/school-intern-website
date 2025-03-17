@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\PengaduanController;
 
 // Halaman user
 Route::get('/', [DashboardController::class, 'index'])->name('userDashboard');
@@ -29,4 +30,14 @@ Route::get('/visi-misi', [DashboardController::class, 'visi'])->name('visi.index
 Route::get('/kontak', [DashboardController::class, 'kontak'])->name('kontak.index');
 
 // Halaman pengaduan
-Route::get('/aduan', [DashboardController::class, 'aduan'])->name('aduan.index');
+// Menampilkan halaman form pengaduan (GET)
+Route::get('/pengaduan', function () {
+    return view('pages.user.pengaduan');
+})->name('pengaduan.create');
+
+// Route untuk menyimpan pengaduan dari form user
+Route::post('/pengaduan', [PengaduanController::class, 'store'])->name('pengaduan.store');
+
+// Route untuk menampilkan dan menghapus pengaduan di dashboard admin
+Route::get('/admin/pengaduan', [PengaduanController::class, 'index'])->name('pengaduan.show-all-pengaduan');
+Route::delete('/admin/pengaduan/{id}', [PengaduanController::class, 'destroy'])->name('pengaduan.destroy');

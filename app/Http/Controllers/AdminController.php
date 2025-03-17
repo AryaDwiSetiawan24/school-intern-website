@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Berita;
 use App\Models\Pegawai;
-
+use App\Models\Pengaduan;
 
 class AdminController extends Controller
 {
