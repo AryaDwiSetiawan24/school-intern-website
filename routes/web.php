@@ -30,3 +30,4 @@ Route::get('/kontak', [DashboardController::class, 'kontak'])->name('kontak.inde
 
 // Halaman pengaduan
 Route::get('/aduan', [DashboardController::class, 'aduan'])->name('aduan.index');
+Route::get('/profilsekolah', [DashboardController::class, 'profilsekolah'])->name('profilsekolah.index');

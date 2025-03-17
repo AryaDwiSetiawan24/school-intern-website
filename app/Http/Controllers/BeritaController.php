@@ -10,12 +10,22 @@ use App\Http\Controllers\Controller;
 class BeritaController extends Controller
 {
     // tampil di user
-    public function index()
+    public function index(Request $request)
     {
-        $beritas = Berita::latest()->paginate(6);
+        $query = Berita::latest(); // Query default menampilkan berita terbaru
+
+        // Cek apakah ada pencarian
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where('judul', 'like', "%$search%")
+                ->orWhere('isi', 'like', "%$search%");
+        }
+
+        $beritas = $query->paginate(6); // Paginate hasil pencarian
+
         return view('pages/user/berita', compact('beritas'));
     }
-    
+
     public function show($slug)
     {
         $berita = Berita::where('slug', $slug)->firstOrFail();
