@@ -20,13 +20,10 @@ Route::get('/pegawai', [DashboardController::class, 'pegawai'])->name('pegawai.i
 
 // Halaman galeri
 Route::get('/galeri-foto', [DashboardController::class, 'foto'])->name('foto.index');
-Route::get('/galeri-video', [DashboardController::class, 'video'])->name('video.index');
-
-// Halaman visi-misi
-Route::get('/visi-misi', [DashboardController::class, 'visi'])->name('visi.index');
 
 // Halaman kontak
 Route::get('/kontak', [DashboardController::class, 'kontak'])->name('kontak.index');
 
 // Halaman pengaduan
 Route::get('/aduan', [DashboardController::class, 'aduan'])->name('aduan.index');
+Route::get('/profilsekolah', [DashboardController::class, 'profilsekolah'])->name('profilsekolah.index');
