@@ -20,6 +20,15 @@
                     value="{{ $pegawai->jabatan }}" required>
             </div>
             <div class="mb-4">
+                <label for="role">Pegawai Role (Optional)</label>
+                <select name="role" id="role" class="form-input w-full rounded-md">
+                    <option value="lainnya" {{ $pegawai->role == 'lainnya' ? 'selected' : '' }}>pilih role (lainnya)
+                    </option>
+                    <option value="guru" {{ $pegawai->role == 'guru' ? 'selected' : '' }}>Guru</option>
+                    <option value="pegawai" {{ $pegawai->role == 'pegawai' ? 'selected' : '' }}>Pegawai</option>
+                </select>
+            </div>
+            <div class="mb-4">
                 <label for="foto" class="block text-gray-700">Foto</label>
                 <input type="file" name="foto" id="foto" class="w-full px-4 py-2 border rounded">
                 @if ($pegawai->foto)

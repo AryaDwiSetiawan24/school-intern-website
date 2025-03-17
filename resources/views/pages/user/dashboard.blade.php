@@ -5,12 +5,12 @@
         <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row justify-center items-center">
             <!--Left Col-->
             <div class="flex flex-col w-full md:w-2/5 justify-center items-center md:text-left ">
-                <p class="uppercase tracking-loose w-full text-center">yakin efisiensi anggaran pendidikan?</p>
+                {{-- <p class="uppercase tracking-loose w-full text-center">pendidikan harus nomor satu.</p> --}}
                 <h1 class="my-4 text-5xl font-bold leading-tight  text-center">
                     SD N 1 SEMARANG
                 </h1>
-                <p class="leading-normal text-2xl mb-8 text-center">
-                    Kurikulum disusun dengan baik agar membantu siswa untuk memahami materi yang diajarkan.
+                <p class="leading-normal text-lg lg:text-2xl  mb-8 text-center">
+                    Kurikulum disusun dengan baik agar membantu siswa untuk memahami materi yang diajarkan
                 </p>
             </div>
         </div>
@@ -44,8 +44,7 @@
     {{-- section 1 --}}
     <section class="bg-white border-b py-8">
         <div class="container max-w-5xl mx-auto m-8">
-            <!-- Sambutan Kepala Sekolah -->
-            <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800" id="sambutan">
+            <h2 class="w-full my-2 text-2xl lg:text-5xl font-bold leading-tight text-center text-gray-800" id="sambutan">
                 Sambutan Kepala Sekolah
             </h2>
             <div class="w-full mb-8">
@@ -63,9 +62,9 @@
                 <div class="w-full sm:w-2/3 p-6">
                     <div class="bg-gray-50 rounded-lg p-6 shadow-sm">
                         <p class="text-gray-600 mb-6 leading-relaxed">
-                            {{ Str::limit($sambutan, 500) }}
+                            {{ Str::limit($sambutan, 550) }}
                         </p>
-                        <a class="inline-block px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition duration-300" href="#">Baca selengkapnya</a>
+                        <a class="inline-block px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition duration-300" href="/profilsekolah">Baca selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -93,11 +92,10 @@
                         <p class="text-gray-600 mb-6 leading-relaxed">
                             {{ Str::limit($sejarah, 300) }}
                         </p>
-                        <a class="inline-block px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition duration-300" href="#">
+                        <a class="inline-block px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition duration-300" href="/profilsekolah">
                             Baca selengkapnya
                         </a>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -152,7 +150,6 @@
                 </div>
                 @endforeach
             </div>
-
             @if(count($beritas) > 9)
             <div class="flex justify-center mt-12">
                 <a
