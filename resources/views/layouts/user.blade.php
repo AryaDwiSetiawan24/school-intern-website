@@ -27,7 +27,7 @@
     </style>
 </head>
 
-<body class="leading-normal tracking-normal text-white base-color" style="font-family: 'Source Sans Pro', sans-serif;">
+<body class="leading-normal tracking-normal base-color" style="font-family: 'Source Sans Pro', sans-serif;">
     <!--Nav-->
     <x-user.navbar />
 
