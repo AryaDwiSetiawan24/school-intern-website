@@ -5,12 +5,12 @@
         <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row justify-center items-center">
             <!--Left Col-->
             <div class="flex flex-col w-full md:w-2/5 justify-center items-center md:text-left ">
-                <p class="uppercase tracking-loose w-full text-center">yakin efisiensi anggaran pendidikan?</p>
+                {{-- <p class="uppercase tracking-loose w-full text-center">pendidikan harus nomor satu.</p> --}}
                 <h1 class="my-4 text-5xl font-bold leading-tight  text-center">
                     SD N 1 SEMARANG
                 </h1>
-                <p class="leading-normal text-lg lg-text-2xl  mb-8 text-center">
-                    Kurikulum disusun dengan baik agar membantu siswa untuk memahami materi yang diajarkan.
+                <p class="leading-normal text-lg lg:text-2xl  mb-8 text-center">
+                    Kurikulum disusun dengan baik agar membantu siswa untuk memahami materi yang diajarkan
                 </p>
             </div>
         </div>
@@ -42,16 +42,17 @@
     {{-- section 1 --}}
     <section class="bg-white border-b py-8">
         <div class="container max-w-5xl mx-auto m-8">
-            <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800" id="sambutan">
+            <h2 class="w-full my-2 text-2xl lg:text-5xl font-bold leading-tight text-center text-gray-800" id="sambutan">
                 Sambutan Kepala Sekolah
             </h2>
             <div class="w-full mb-4">
                 <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
             </div>
+            
             <div class="flex flex-wrap">
                 <div class="w-full sm:w-1/2 p-6">
-                    <img class="sm:h-64 mx-auto" src="{{ asset('images/auth-image.jpg') }}" />
-                    <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3 text-center">
+                    <img class="sm:h-54 mx-auto" src="{{ asset('images/auth-image.jpg') }}" />
+                    <h3 class="text-lg lg:text-3xl text-gray-800 font-bold leading-none mt-2 text-center">
                         Bp. Slamet Riyati S.pd M.pls
                     </h3>
                 </div>
@@ -60,7 +61,7 @@
                         {{ Str::limit('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint amet laboriosam quaerat quasi. Provident, consequuntur ipsam vel voluptatibus quia quisquam ipsa assumenda sunt officiis nemo eius ducimus corrupti dolore eos. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam cupiditate rerum alias nisi non. Consequuntur eum perferendis sit tempora ipsum ad delectus dicta, quibusdam veniam repellat tempore deleniti atque molestiae? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempore quibusdam itaque earum eaque ut cumque impedit numquam, molestias dicta debitis praesentium libero nihil illo veritatis dolore porro, quaerat quasi.', 550) }}
                         <br />
                         <br />
-                        <a class="text-pink-500 underline" href="#">lihat lainnya &raquo;</a>
+                        <a class="text-pink-500 underline" href="/profilsekolah">lihat lainnya &raquo;</a>
                     </p>
                 </div>
             </div>
@@ -74,8 +75,11 @@
                             {{ Str::limit('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint amet laboriosam quaerat quasi. Provident, consequuntur ipsam vel voluptatibus quia quisquam ipsa assumenda sunt officiis nemo eius ducimus corrupti dolore eos. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam cupiditate rerum alias nisi non. Consequuntur eum perferendis sit tempora ipsum ad delectus dicta, quibusdam veniam repellat tempore deleniti atque molestiae? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores tempore quibusdam itaque earum eaque ut cumque impedit numquam, molestias dicta debitis praesentium libero nihil illo veritatis dolore porro, quaerat quasi.', 550) }}
                             <br />
                             <br />
-                            <a class="text-pink-500 underline" href="#">lihat lainnya &raquo;</a>
+                            <a class="text-pink-500 underline" href="/profilsekolah">lihat lainnya &raquo;</a>
                         </p>
+                        <div class="flex align-baseline justify-end">
+                            <img class="sm:h-64 mx-auto" src="{{ asset('images/education.jpg') }}" alt="gambar sekolah"/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -86,32 +90,39 @@
             <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
                 Berita
             </h2>
-            <div class="w-full mb-4">
-                <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div> {{-- decorate line --}}
+            <div class="w-full mb-4"> {{-- decorate line --}}
+                <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
             </div>
-            
+            <h3 class="w-full  leading-tight text-gray-500 text-center">
+                Menampilkan berita terkini
+            </h3>
+
             @foreach ($beritas as $berita)
-            <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-                <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg transition-all duration-500 hover:scale-105">
-                    <a href="{{ route('berita.show', $berita->slug) }}" class="flex flex-wrap no-underline hover:no-underline">
-                        <p class="w-full text-gray-600 text-xs md:text-sm px-6">
-                            {{ $berita->created_at->format('d M Y') }}
-                        </p>
-                        <div class="flex justify-center w-full mt-1">
-                            <img src="{{ ($berita->gambar) ? asset('storage/'.$berita->gambar) : 'https://placehold.co/600x400?text=No+Image' }}" class="max-h-56 max-w-full w-auto h-auto rounded-t pb-6"/>
-                        </div>
-                        <div class="w-full font-bold text-xl text-gray-800 px-6">
-                            {{ $berita->judul }}
-                        </div>
-                        <p class="text-gray-800 text-base px-6 mb-1">
-                            {{ Str::limit($berita->isi, 105) }}
-                        </p>
-                    </a>
-                    <a class="m-6 text-pink-500 underline hover:no-underline" href="{{ route('berita.show', $berita->slug) }}">lihat lainnya &raquo;</a>
+                <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink *:hover:shadow-2xl">
+                    <div
+                        class="flex-1 bg-white pb-4 pt-2 rounded-t rounded-b-none overflow-hidden shadow-lg transition-all duration-500 hover:scale-105 ">
+                        <a href="{{ route('berita.show', $berita->slug) }}"
+                            class="flex flex-wrap no-underline hover:no-underline">
+                            <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+                                {{ $berita->created_at->format('d M Y') }}
+                            </p>
+                            <div class="flex justify-center w-full mt-1">
+                                <img src="{{ $berita->gambar ? asset('storage/' . $berita->gambar) : 'https://placehold.co/600x400?text=No+Image' }}"
+                                    class="max-h-56 max-w-full w-auto h-auto rounded-t pb-6" />
+                            </div>
+                            <div class="w-full font-bold text-xl text-gray-800 px-6">
+                                {{ $berita->judul }}
+                            </div>
+                            <p class="text-gray-800 text-base px-6 mb-1">
+                                {{ Str::limit($berita->isi, 105) }}
+                            </p>
+                        </a>
+                        <a class="m-6 text-pink-500 underline hover:no-underline"
+                            href="{{ route('berita.show', $berita->slug) }}">lihat lainnya &raquo;</a>
+                    </div>
                 </div>
-            </div>
             @endforeach
-            
+
         </div>
     </section>
     <section class="bg-gray-100 py-8">
@@ -227,61 +238,61 @@
             </g>
         </g>
     </svg>
+
+    {{-- Section Guru --}}
     <section class="container mx-auto text-center py-8 px-4">
-    <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
-        Daftar Guru
-    </h2>
-    <div class="w-full mb-4">
-        <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
-    </div>
-    <h3 class="my-4 text-3xl leading-tight">
-        Guru adalah pahlawan tanpa tanda jasa!
-    </h3>
-    <div class="container mx-auto py-8">
-        <h1 class="text-center text-2xl font-semibold mb-8">Guru dan Karyawan</h1>
-        <div class="relative px-10">
-            <button id="scrollLeft" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full z-10">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <div class="flex overflow-x-auto scroll-container gap-6 pb-6">
-                @foreach ($pegawai as $staff)
-                <div class="text-center flex-shrink-0 w-48 mx-2">
-                    <img alt="{{ $staff->nama }}" class="rounded-lg mb-4 w-full h-64 object-cover object-center" src="{{ ($staff->foto) ? asset('storage/'.$staff->foto) : 'https://placehold.co/200x300?text=No+Image' }}" />
-                    <h2 class="font-semibold text-lg">{{ $staff->nama }}</h2>
-                    <p class="text-sm text-gray-200">{{ $staff->jabatan }}</p>
-                    <p class="text-xs text-gray-300">{{ $staff->alamat }}</p>
-                </div>
-                @endforeach
-            </div>
-            <button id="scrollRight" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full z-10">
-                <i class="fas fa-chevron-right"></i>
-            </button>
+        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
+            Guru dan Karyawan
+        </h2>
+        <div class="w-full mb-4">
+            <div class="h-1 mx-auto gradient w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
         </div>
-    </div>
-    <button
-        onclick="window.location.href='/pegawai';"
-        class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-        Lihat Guru
-    </button>
-</section>
+        <div class="container mx-auto py-8">
+            <div class="relative px-10">
+                <button id="scrollLeft"
+                    class="absolute h-10 left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full z-10">
+                    <i class="uil uil-arrow-left"></i>
+                </button>
+                <div class="flex overflow-x-auto scroll-container gap-6 pb-6">
+                    @foreach ($pegawai as $staff)
+                        <div class="text-center flex-shrink-0 w-48 mx-2">
+                            <img alt="{{ $staff->nama }}"
+                                class="rounded-lg mb-4 w-full h-64 object-cover object-center"
+                                src="{{ $staff->foto ? asset('storage/' . $staff->foto) : 'https://placehold.co/200x300?text=No+Image' }}" />
+                            <h2 class="font-semibold text-lg">{{ $staff->nama }}</h2>
+                            <p class="text-sm text-gray-200">{{ $staff->jabatan }}</p>
+                        </div>
+                    @endforeach
+                </div>
+                <button id="scrollRight"
+                    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full z-10">
+                    <i class="uil uil-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+        <button onclick="window.location.href='/pegawai';"
+            class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+            Lihat Guru
+        </button>
+    </section>
 
-<script>
-    const scrollContainer = document.querySelector('.scroll-container');
-    const scrollLeft = document.getElementById('scrollLeft');
-    const scrollRight = document.getElementById('scrollRight');
+    <script>
+        const scrollContainer = document.querySelector('.scroll-container');
+        const scrollLeft = document.getElementById('scrollLeft');
+        const scrollRight = document.getElementById('scrollRight');
 
-    scrollLeft.addEventListener('click', () => {
-        scrollContainer.scrollBy({
-            left: -300,
-            behavior: 'smooth'
+        scrollLeft.addEventListener('click', () => {
+            scrollContainer.scrollBy({
+                left: -300,
+                behavior: 'smooth'
+            });
         });
-    });
 
-    scrollRight.addEventListener('click', () => {
-        scrollContainer.scrollBy({
-            left: 300,
-            behavior: 'smooth'
+        scrollRight.addEventListener('click', () => {
+            scrollContainer.scrollBy({
+                left: 300,
+                behavior: 'smooth'
+            });
         });
-    });
-</script>
+    </script>
 </x-user-layout>

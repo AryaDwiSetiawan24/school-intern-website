@@ -21,8 +21,16 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
-            // 'current_team_id' => null,
-            // 'profile_photo_path' => null,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Admin2',
+            'email' => 'admin1234@example.com',
+            'password' => Hash::make('password'),
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now(),
         ]);

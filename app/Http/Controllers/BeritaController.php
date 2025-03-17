@@ -58,6 +58,12 @@ class BeritaController extends Controller
         return view('pages/admin/berita/show-berita', compact('berita'));
     }
 
+    public function edit($id)
+    {
+        $berita = Berita::where('slug', $id)->firstOrFail();
+        return view('pages/admin/berita/edit-berita', compact('berita'));
+    }
+
     public function update(Request $request, $id)
     {
         $request->validate([
