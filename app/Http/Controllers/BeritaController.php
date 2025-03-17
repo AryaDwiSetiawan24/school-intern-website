@@ -80,7 +80,7 @@ class BeritaController extends Controller
             'judul' => 'required|string|max:255',
             'isi' => 'required',
             'slug' => 'required|unique:beritas,slug,' . $id,
-            'gambar' => 'nullable|image'
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
         $berita = Berita::findOrFail($id);
@@ -88,7 +88,7 @@ class BeritaController extends Controller
         $berita->isi = $request->isi;
         $berita->slug = $request->slug;
         if ($request->hasFile('gambar')) {
-            $berita->gambar = $request->file('gambar')->store('images');
+            $berita->gambar = $request->file('gambar')->store('images', 'public');
         }
         $berita->save();
 
