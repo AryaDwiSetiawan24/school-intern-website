@@ -5,6 +5,6 @@
         @if($berita->gambar)
         <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar Berita" class="mb-4 w-1/4">
         @endif
-        <a href="{{ route('berita.page') }}" class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded">Kembali</a>
+        <a href="{{ url()->previous() }}" class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded">Kembali</a>
     </div>
 </x-app-layout>

@@ -10,12 +10,22 @@ use App\Http\Controllers\Controller;
 class BeritaController extends Controller
 {
     // tampil di user
-    public function index()
+    public function index(Request $request)
     {
-        $beritas = Berita::latest()->paginate(6);
+        $query = Berita::latest(); // Query default menampilkan berita terbaru
+
+        // Cek apakah ada pencarian
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where('judul', 'like', "%$search%")
+                ->orWhere('isi', 'like', "%$search%");
+        }
+
+        $beritas = $query->paginate(6); // Paginate hasil pencarian
+
         return view('pages/user/berita', compact('beritas'));
     }
-    
+
     public function show($slug)
     {
         $berita = Berita::where('slug', $slug)->firstOrFail();
@@ -58,13 +68,19 @@ class BeritaController extends Controller
         return view('pages/admin/berita/show-berita', compact('berita'));
     }
 
+    public function edit($id)
+    {
+        $berita = Berita::where('slug', $id)->firstOrFail();
+        return view('pages/admin/berita/edit-berita', compact('berita'));
+    }
+
     public function update(Request $request, $id)
     {
         $request->validate([
             'judul' => 'required|string|max:255',
             'isi' => 'required',
             'slug' => 'required|unique:beritas,slug,' . $id,
-            'gambar' => 'nullable|image'
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
         $berita = Berita::findOrFail($id);
@@ -72,7 +88,7 @@ class BeritaController extends Controller
         $berita->isi = $request->isi;
         $berita->slug = $request->slug;
         if ($request->hasFile('gambar')) {
-            $berita->gambar = $request->file('gambar')->store('images');
+            $berita->gambar = $request->file('gambar')->store('images', 'public');
         }
         $berita->save();
 

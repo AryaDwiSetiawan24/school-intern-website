@@ -16,6 +16,7 @@ class pegawai extends Model
         'nama',
         'alamat',
         'jabatan',
+        'role',
         'foto',
     ];
 }

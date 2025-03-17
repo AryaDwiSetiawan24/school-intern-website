@@ -2,58 +2,26 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use App\Models\Pegawai;
+use Faker\Factory as Faker;
 
 class PegawaiSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Jalankan seeder untuk tabel pegawai.
      */
     public function run(): void
     {
-        DB::table('pegawais')->insert([
-            [
-                'nama' => 'John Doe',
-                'alamat' => '123 Main St',
-                'jabatan' => 'Kepala Sekolah',
-                'foto' => '',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nama' => 'Jane Smith',
-                'alamat' => '456 Elm St',
-                'jabatan' => 'Wakil kepala sekolah',
-                'foto' => '',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nama' => 'Robert Brown',
-                'alamat' => '789 Oak St',
-                'jabatan' => 'Guru',
-                'foto' => '',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nama' => 'Emily White',
-                'alamat' => '321 Pine St',
-                'jabatan' => 'Guru',
-                'foto' => '',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nama' => 'Michael Green',
-                'alamat' => '654 Maple St',
-                'jabatan' => 'Staf',
-                'foto' => '',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-        ]);
+        $faker = Faker::create('id_ID'); // Bahasa Indonesia
+
+        foreach (range(1, 20) as $index) {
+            Pegawai::create([
+                'nama' => $faker->name,
+                'alamat' => $faker->address,
+                'jabatan' => $faker->randomElement(['Kepala Sekolah', 'Wakil Kepala Sekolah', 'Guru', 'Staf']),
+                'foto' => $faker->imageUrl(200, 200, 'people'), // Foto dummy
+            ]);
+        }
     }
 }
