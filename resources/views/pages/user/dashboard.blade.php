@@ -9,7 +9,7 @@
                 <h1 class="my-4 text-5xl font-bold leading-tight  text-center">
                     SD N 1 SEMARANG
                 </h1>
-                <p class="leading-normal text-2xl mb-8 text-center">
+                <p class="leading-normal text-lg lg-text-2xl  mb-8 text-center">
                     Kurikulum disusun dengan baik agar membantu siswa untuk memahami materi yang diajarkan.
                 </p>
             </div>

@@ -39,101 +39,170 @@
     <!--Footer-->
     <x-user.footer />
 
-    {{-- fungsi smooth scroll --}}
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        // Improved dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const header = document.getElementById('header');
+            const navToggle = document.getElementById('nav-toggle');
+            const navContent = document.getElementById('nav-content');
+            const navAction = document.getElementById('navAction');
+            const dropdownButtons = document.querySelectorAll('.dropdown > button');
+            const toToggle = document.querySelectorAll('.toggleColour');
+
+            // Function to toggle navbar appearance
+            function toggleNavbarAppearance(makeWhite) {
+                if (makeWhite) {
+                    // White background appearance
+                    header.classList.add("bg-white");
+                    header.classList.remove("bg-opacity-50");
+                    header.classList.add("text-gray-800");
+                    header.classList.remove("text-white");
+                    navAction.classList.remove("bg-white");
+                    navAction.classList.add("gradient");
+                    navAction.classList.remove("text-gray-800");
+                    navAction.classList.add("text-white");
+
+                    // Toggle text colors
+                    for (let i = 0; i < toToggle.length; i++) {
+                        toToggle[i].classList.add("text-gray-800");
+                        toToggle[i].classList.remove("text-white");
+                    }
+
+                    header.classList.add("shadow");
+                } else {
+                    // Transparent background appearance
+                    header.classList.remove("bg-white");
+                    header.classList.add("bg-opacity-50");
+                    header.classList.remove("text-gray-800");
+                    header.classList.add("text-white");
+                    navAction.classList.remove("gradient");
+                    navAction.classList.add("bg-white");
+                    navAction.classList.add("text-gray-800");
+                    navAction.classList.remove("text-white");
+
+                    // Toggle text colors
+                    for (let i = 0; i < toToggle.length; i++) {
+                        toToggle[i].classList.remove("text-gray-800");
+                        toToggle[i].classList.add("text-white");
+                    }
+
+                    header.classList.remove("shadow");
+                }
+            }
+
+            // Mobile menu toggle functionality
+            navToggle.addEventListener('click', function() {
+                navContent.classList.toggle('hidden');
+
+                // Toggle navbar appearance when menu is opened
+                if (!navContent.classList.contains('hidden') && window.scrollY <= 10) {
+                    toggleNavbarAppearance(true);
+                } else if (navContent.classList.contains('hidden') && window.scrollY <= 10) {
+                    toggleNavbarAppearance(false);
+                }
+            });
+
+            // Dropdown handling - detect if we're on mobile or desktop
+            const isMobile = () => window.innerWidth < 1024; // lg breakpoint in Tailwind
+
+            // Setup dropdown toggle for both click and hover
+            dropdownButtons.forEach(button => {
+                const dropdown = button.nextElementSibling;
+                const arrow = button.querySelector('svg');
+
+                // Click handler for dropdowns (primarily for mobile)
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Prevent closing immediately due to document click
+
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('hidden');
+                    arrow.classList.toggle('rotate-180');
+
+                    // Close other dropdowns
+                    if (!dropdown.classList.contains('hidden')) {
+                        dropdownButtons.forEach(otherButton => {
+                            if (otherButton !== button) {
+                                const otherDropdown = otherButton.nextElementSibling;
+                                const otherArrow = otherButton.querySelector('svg');
+                                otherDropdown.classList.add('hidden');
+                                otherArrow.classList.remove('rotate-180');
+                            }
+                        });
+                    }
+                });
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(event) {
+                const isDropdownButton = event.target.closest('.dropdown > button');
+                const isDropdownMenu = event.target.closest('.dropdown-menu');
+
+                if (!isDropdownButton && !isDropdownMenu) {
+                    dropdownButtons.forEach(button => {
+                        const dropdown = button.nextElementSibling;
+                        const arrow = button.querySelector('svg');
+                        dropdown.classList.add('hidden');
+                        arrow.classList.remove('rotate-180');
+                    });
+                }
+            });
+
+            // Handle scroll behavior
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 10) {
+                    toggleNavbarAppearance(true);
+                } else {
+                    // Only toggle back to transparent if mobile menu is closed
+                    if (navContent.classList.contains('hidden')) {
+                        toggleNavbarAppearance(false);
+                    }
+                }
+            });
+
+            // Handle window resize to fix dropdown behavior
+            window.addEventListener('resize', function() {
+                // Reset all dropdowns when resizing between mobile and desktop
+                dropdownButtons.forEach(button => {
+                    const dropdown = button.nextElementSibling;
+                    const arrow = button.querySelector('svg');
+                    dropdown.classList.add('hidden');
+                    arrow.classList.remove('rotate-180');
+                });
+
+                // Close mobile menu on resize
+                if (window.innerWidth >= 1024) {
+                    navContent.classList.add('hidden');
+                    // Reset appearance if we're at the top
+                    if (window.scrollY <= 10) {
+                        toggleNavbarAppearance(false);
+                    }
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+
+                    // Only process actual anchor links (not "#" placeholders)
+                    if (href.length > 1) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            // Close mobile menu when clicking a link
+                            if (!navContent.classList.contains('hidden')) {
+                                navContent.classList.add('hidden');
+                            }
+
+                            target.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
                 });
             });
         });
-    </script>
-
-    <script>
-        var scrollpos = window.scrollY;
-        var header = document.getElementById("header");
-        var navLink = document.getElementById("navLink");
-        var navcontent = document.getElementById("nav-content");
-        var navaction = document.getElementById("navAction");
-        // var brandname = document.getElementById("brandname");
-        var toToggle = document.querySelectorAll(".toggleColour");
-
-        document.addEventListener("scroll", function() {
-            /*Apply classes for slide in bar*/
-            scrollpos = window.scrollY;
-
-            if (scrollpos > 10) {
-                header.classList.add("bg-white");
-                header.classList.remove("bg-opacity-50");
-                navLink.classList.add("text-black");
-                navaction.classList.remove("bg-white");
-                navaction.classList.add("gradient");
-                navaction.classList.remove("text-gray-800");
-                navaction.classList.add("text-white");
-                //Use to switch toggleColour colours
-                for (var i = 0; i < toToggle.length; i++) {
-                    toToggle[i].classList.add("text-gray-800");
-                    toToggle[i].classList.remove("text-white");
-                }
-                header.classList.add("shadow");
-            } else {
-                header.classList.remove("bg-white");
-                header.classList.add("bg-opacity-50");
-                navLink.classList.remove("text-black");
-                navaction.classList.remove("gradient");
-                navaction.classList.add("bg-white");
-                navaction.classList.remove("text-white");
-                navaction.classList.add("text-gray-800");
-                //Use to switch toggleColour colours
-                for (var i = 0; i < toToggle.length; i++) {
-                    toToggle[i].classList.add("text-white");
-                    toToggle[i].classList.remove("text-gray-800");
-                }
-                header.classList.remove("shadow");
-            }
-        });
-    </script>
-
-    <script>
-        /*Toggle dropdown list*/
-        /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
-
-        var navMenuDiv = document.getElementById("nav-content");
-        var navMenu = document.getElementById("nav-toggle");
-
-        document.onclick = check;
-
-        function check(e) {
-            var target = (e && e.target) || (event && event.srcElement);
-
-            //Nav Menu
-            if (!checkParent(target, navMenuDiv)) {
-                // click NOT on the menu
-                if (checkParent(target, navMenu)) {
-                    // click on the link
-                    if (navMenuDiv.classList.contains("hidden")) {
-                        navMenuDiv.classList.remove("hidden");
-                    } else {
-                        navMenuDiv.classList.add("hidden");
-                    }
-                } else {
-                    // click both outside link and outside menu, hide menu
-                    navMenuDiv.classList.add("hidden");
-                }
-            }
-        }
-
-        function checkParent(t, elm) {
-            while (t.parentNode) {
-                if (t == elm) {
-                    return true;
-                }
-                t = t.parentNode;
-            }
-            return false;
-        }
     </script>
     @livewireScriptConfig
 </body>
