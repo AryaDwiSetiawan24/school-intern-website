@@ -85,7 +85,7 @@
 
                 <!-- Complaint Service -->
                 <li class="mr-3 py-1 lg:py-0">
-                    <a href="/aduan" class="inline-block w-full font-bold hover:text-pink-500 hover:text-underline py-2 px-4 transition duration-200">
+                    <a href="/pengaduan" class="inline-block w-full font-bold hover:text-pink-500 hover:text-underline py-2 px-4 transition duration-200">
                         Layanan Aduan
                     </a>
                 </li>

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Berita;
-use App\Models\Pegawai;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Request;
+use App\Models\Berita;
+use App\Models\Pegawai;
 
 class AdminController extends Controller
 {
@@ -33,14 +33,6 @@ class AdminController extends Controller
     // Pegawai
     public function pegawaiAdd(Request $request)
     {
-        // $roleFilter = request()->query('role');
-
-        // $query = Pegawai::query();
-        // if ($roleFilter) {
-        //     $query->where('role', $roleFilter);
-        // }
-
-        // $roles = Pegawai::select('role')->distinct()->pluck('role'); // Ambil daftar role unik
         $pegawais = Pegawai::all();
         return view('pages/admin/pegawai/add-pegawai', compact('pegawais'));
     }
