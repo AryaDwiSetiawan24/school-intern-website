@@ -12,22 +12,17 @@
     <meta name="keywords" content="" />
     <meta name="author" content="" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
-    <!--Replace with your tailwind.css once created-->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
     <style>
         .gradient {
             background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
         }
-
-        .base-color {
-            background: rgba(0, 0, 0, 0.801);
-        }
     </style>
 </head>
 
-<body class="leading-normal tracking-normal text-white base-color" style="font-family: 'Source Sans Pro', sans-serif;">
+<body class="leading-normal tracking-normal base-color" style="font-family: 'Source Sans Pro', sans-serif;">
     <!--Nav-->
     <x-user.navbar />
 
@@ -55,7 +50,7 @@
                 if (makeWhite) {
                     // White background appearance
                     header.classList.add("bg-white");
-                    header.classList.remove("bg-opacity-50");
+                    header.classList.remove("bg-opacity-0");
                     header.classList.add("text-gray-800");
                     header.classList.remove("text-white");
                     navAction.classList.remove("bg-white");
@@ -73,7 +68,7 @@
                 } else {
                     // Transparent background appearance
                     header.classList.remove("bg-white");
-                    header.classList.add("bg-opacity-50");
+                    header.classList.add("bg-opacity-0");
                     header.classList.remove("text-gray-800");
                     header.classList.add("text-white");
                     navAction.classList.remove("gradient");
