@@ -1,5 +1,5 @@
 <x-user-layout>
     <div class="h-96 flex items-center justify-center">
-        halaman visi misi
+        halaman profile sekolah
     </div>
 </x-user-layout>

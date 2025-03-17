@@ -13,7 +13,7 @@ Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
 Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
 
 // Halaman sejarah
-Route::get('/sejarah', [DashboardController::class, 'sejarah'])->name('sejarah.index');
+Route::get('/siswa', [DashboardController::class, 'siswa'])->name('siswa.index');
 
 // Halaman pegawai
 Route::get('/pegawai', [DashboardController::class, 'pegawai'])->name('pegawai.index');
@@ -23,7 +23,7 @@ Route::get('/galeri-foto', [DashboardController::class, 'foto'])->name('foto.ind
 Route::get('/galeri-video', [DashboardController::class, 'video'])->name('video.index');
 
 // Halaman visi-misi
-Route::get('/visi-misi', [DashboardController::class, 'visi'])->name('visi.index');
+Route::get('/profilsekolah', [DashboardController::class, 'profilsekolah'])->name('profilsekolah.index');
 
 // Halaman kontak
 Route::get('/kontak', [DashboardController::class, 'kontak'])->name('kontak.index');

@@ -4,7 +4,7 @@
         <div class="pl-4 flex items-center">
             <a class="toggleColour no-underline hover:no-underline font-bold text-xl lg:text-2xl flex items-center" href="/">
                 <img src="/images/usm.png" alt="Logo" class="h-12 md:h-16 fill-current inline mr-3">
-                <span>SD N GAJAHMUNGKUR 01</span>
+                <span class="text-sm lg:text-xl">SD N GAJAHMUNGKUR 01</span>
             </a>
         </div>
 

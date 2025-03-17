@@ -15,14 +15,14 @@ class DashboardController extends Controller
         return view('pages/user/dashboard', compact('pegawai', 'beritas'));
     }
 
-    public function visi()
+    public function siswa()
     {
-        return view('pages/user/visi-misi');
+        return view('pages/user/siswa');
     }
 
-    public function sejarah()
+    public function profilsekolah()
     {
-        return view('pages/user/sejarah');
+        return view('pages/user/profil');
     }
 
     public function pegawai()
