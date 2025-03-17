@@ -1,17 +1,17 @@
 {{-- halaman dashboard user --}}
 <x-user-layout>
-    <div class="relative h-screen flex justify-center items-center bg-cover bg-center"
-        style="background-image: url('{{ asset('images/sdn01gajahmungkur.png') }}'); background-attachment: fixed;">
-
-        <!-- Overlay gelap agar teks lebih terbaca -->
-        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-
-        <div class="container px-4 mx-auto flex flex-col md:flex-row justify-center items-center relative">
-            <!-- Konten -->
-            <div class="flex flex-col w-full md:w-2/5 justify-center items-center text-white text-center md:text-left">
-                <p class="uppercase tracking-wide">Yakin efisiensi anggaran pendidikan?</p>
-                <h1 class="my-4 text-5xl font-bold leading-tight">SD N GAJAHMUNGKUR 01</h1>
-                <p class="leading-normal text-2xl mb-8">Kurikulum disusun dengan baik agar membantu siswa memahami materi yang diajarkan.</p>
+    <div class=" bg-cover bg-center h-screen flex justify-center items-center"
+        style="background-image: url('{{ asset('images/education.jpg') }}'); background-attachment: fixed">
+        <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row justify-center items-center">
+            <!--Left Col-->
+            <div class="flex flex-col w-full md:w-2/5 justify-center items-center md:text-left ">
+                <p class="uppercase tracking-loose w-full text-center">yakin efisiensi anggaran pendidikan?</p>
+                <h1 class="my-4 text-5xl font-bold leading-tight  text-center">
+                    SD N 1 SEMARANG
+                </h1>
+                <p class="leading-normal text-2xl mb-8 text-center">
+                    Kurikulum disusun dengan baik agar membantu siswa untuk memahami materi yang diajarkan.
+                </p>
             </div>
         </div>
 
