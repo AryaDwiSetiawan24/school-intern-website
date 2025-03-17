@@ -20,7 +20,7 @@
         </div>
 
         <!-- Desktop & Mobile Menu Content -->
-        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 lg:bg-transparent p-4 lg:p-0 z-20"
+        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden  mt-2 lg:mt-0 lg:bg-transparent p-4 lg:p-0 z-20"
             id="nav-content">
             <ul class="list-reset lg:flex justify-end flex-1 items-center" id="navLink">
                 <!-- Home -->
@@ -31,7 +31,7 @@
 
                 <!-- School Profile Dropdown -->
                 <li class="mr-3 py-1 lg:py-0 dropdown relative">
-                    <button class="inline-block w-full text-left font-bold hover:text-pink-500 hover:text-underline py-2 px-4 cursor-pointer flex items-center justify-between lg:inline-flex lg:justify-start transition duration-200">
+                    <button class="sm-inline-block w-full text-left font-bold hover:text-pink-500 hover:text-underline py-2 px-4 cursor-pointer flex items-center justify-between lg:inline-flex lg:justify-start transition duration-200">
                         <span>Profil</span>
                         <svg class="fill-current h-4 w-4 ml-1 transform transition-transform duration-200"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -59,7 +59,7 @@
 
                 <!-- Gallery Dropdown -->
                 <li class="mr-3 py-1 lg:py-0 dropdown relative">
-                    <button class="inline-block w-full text-left font-bold hover:text-pink-500 hover:text-underline py-2 px-4 cursor-pointer flex items-center justify-between lg:inline-flex lg:justify-start transition duration-200">
+                    <button class="sm-inline-block w-full text-left font-bold hover:text-pink-500 hover:text-underline py-2 px-4 cursor-pointer flex items-center justify-between lg:inline-flex lg:justify-start transition duration-200">
                         <span>Galeri</span>
                         <svg class="fill-current h-4 w-4 ml-1 transform transition-transform duration-200"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
