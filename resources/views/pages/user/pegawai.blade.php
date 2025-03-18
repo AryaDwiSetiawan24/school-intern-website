@@ -1,7 +1,7 @@
 <x-user-layout>
     <!-- Hero div -->
-    <div class="pt-24 bg-cover bg-center h-[400px] relative"
-        style="background-image: url('{{ asset('images/sdn01gajahmungkur.png') }}'); background-attachment: fixed">
+    <div class="pt-24 bg-cover bg-center h-[400px] relative bg-[url({{ asset('images/sdn01gajahmungkur.png') }})]"
+        style="background-attachment: fixed">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 bg-cover bg-center" aria-hidden="true">
             <div class="absolute inset-0 "></div>

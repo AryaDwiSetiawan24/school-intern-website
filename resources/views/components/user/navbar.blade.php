@@ -1,4 +1,4 @@
-<nav id="header" class="fixed w-full z-30 top-0 text-white bg-black bg-opacity-0 transition-all duration-300">
+<nav id="header" class="fixed w-full z-30 top-0 text-white bg-black bg-opacity-40 transition-all duration-300">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
         <!-- Logo Section -->
         <div class="pl-4 flex items-center">
