@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Berita;
 use App\Models\Pegawai;
 use App\Models\Pengaduan;
+use App\Models\Siswa;
 
 class AdminController extends Controller
 {
@@ -33,4 +34,18 @@ class AdminController extends Controller
         $pegawais = Pegawai::all();
         return view('pages/admin/pegawai/add-pegawai', compact('pegawais'));
     }
+    
+    public function siswaPage()
+    {
+        $siswas = Siswa::all();
+        return view('pages/admin/siswa/show-all-siswa', compact('siswas'));
+    }
+
+    public function siswaAdd()
+    {
+        $siswa = Siswa::all();
+        return view('pages/admin/siswa/add-siswa', compact('siswa'));
+    }
+
+
 }
