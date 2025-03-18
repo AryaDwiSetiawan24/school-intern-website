@@ -20,7 +20,7 @@ class SiswaController extends Controller
     public function show($id)
     {
         $siswa = Siswa::findOrFail($id);
-        return view('admin/show-siswa', compact('siswa'));
+        return view('pages/admin/siswa/show-siswa', compact('siswa'));
     }
 
     // Cek NISN apakah sudah digunakan
@@ -37,6 +37,7 @@ class SiswaController extends Controller
         $request->validate([
             'nisn' => 'required|unique:siswas,nisn',
             'nama' => 'required|string|max:255',
+            'jenis_kelamin' => 'nullable|in:Laki-laki,Perempuan',
             'kelas' => 'required|string|max:100',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
@@ -44,6 +45,7 @@ class SiswaController extends Controller
         $siswa = new Siswa();
         $siswa->nisn = $request->nisn;
         $siswa->nama = $request->nama;
+        $siswa->jenis_kelamin = $request->jenis_kelamin ?? null; 
         $siswa->kelas = $request->kelas;
         if ($request->hasFile('foto')) {
             $siswa->foto = $request->file('foto')->store('images', 'public');
@@ -66,6 +68,7 @@ class SiswaController extends Controller
         $request->validate([
             'nisn' => 'required|unique:siswas,nisn,' . $id,
             'nama' => 'required|string|max:255',
+            'jenis_kelamin' => 'nullable|in:Laki-laki,Perempuan', 
             'kelas' => 'required|string|max:100',
             'foto' => 'nullable|image'
         ]);
@@ -73,6 +76,7 @@ class SiswaController extends Controller
         $siswa = Siswa::findOrFail($id);
         $siswa->nisn = $request->nisn;
         $siswa->nama = $request->nama;
+        $siswa->jenis_kelamin = $request->jenis_kelamin ?? null; // ✅ Bisa NULL
         $siswa->kelas = $request->kelas;
         if ($request->hasFile('foto')) {
             $siswa->foto = $request->file('foto')->store('images', 'public');

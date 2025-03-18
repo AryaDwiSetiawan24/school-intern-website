@@ -14,7 +14,12 @@ class Siswa extends Model
     protected $fillable = [
         'nisn',
         'nama',
+        'jenis_kelamin',
         'kelas',
         'foto',
+    ];
+
+    protected $casts = [
+        'jenis_kelamin' => 'string', 
     ];
 }

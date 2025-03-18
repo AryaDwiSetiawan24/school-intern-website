@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nisn')->unique();
             $table->string('nama');
-            $table->string('kelas'); // Digunakan untuk filter per kelas
+            $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan'])->nullable();
+            $table->string('kelas')->nullable();
             $table->string('foto')->nullable();
             $table->timestamps();
         });

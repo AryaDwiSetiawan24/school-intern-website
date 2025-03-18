@@ -13,8 +13,21 @@
                 <input type="text" name="nama" id="nama" class="w-full px-4 py-2 border rounded" required>
             </div>
             <div class="mb-4">
+                <label for="jenis_kelamin" class="block text-gray-700">Jenis Kelamin</label>
+                <select name="jenis_kelamin" id="jenis_kelamin" class="w-full px-4 py-2 border rounded" required>
+                    <option value="">Pilih Jenis Kelamin</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+            <div class="mb-4">
                 <label for="kelas" class="block text-gray-700">Kelas</label>
-                <input type="text" name="kelas" id="kelas" class="w-full px-4 py-2 border rounded" required>
+                <select name="kelas" id="kelas" class="w-full px-4 py-2 border rounded" required>
+                    <option value="">Pilih Kelas</option>
+                    @for ($i = 1; $i <= 6; $i++)
+                        <option value="{{ $i }}">Kelas {{ $i }}</option>
+                    @endfor
+                </select>
             </div>
             <div class="mb-4">
                 <label for="foto" class="block text-gray-700">Foto</label>
