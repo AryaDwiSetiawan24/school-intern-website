@@ -1,9 +1,9 @@
-<nav id="header" class="fixed w-full z-30 top-0 text-white bg-black bg-opacity-50 transition-all duration-300">
+<nav id="header" class="fixed w-full z-30 top-0 text-white bg-black bg-opacity-40 transition-all duration-300">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
         <!-- Logo Section -->
         <div class="pl-4 flex items-center">
-            <a class="toggleColour no-underline hover:no-underline font-bold text-xl lg:text-2xl flex items-center" href="/">
-                <img src="/images/usm.png" alt="Logo" class="h-12 md:h-16 fill-current inline mr-3">
+            <a class="toggleColour no-underline  hover:no-underline font-bold text-xl lg:text-2xl flex items-center" href="/">
+                <img src="/images/logo.png" alt="Logo" class="h-12 md:h-16 fill-current inline mr-3">
                 <span>SD N GAJAHMUNGKUR 01</span>
             </a>
         </div>
@@ -71,7 +71,7 @@
                             <a href="/galeri-foto" class="block px-4 py-2 hover:bg-gray-200 transition duration-200">Foto</a>
                         </li>
                         <li>
-                            <a href="/galeri-video" class="block px-4 py-2 hover:bg-gray-200 transition duration-200">Video</a>
+                            <a href="https://www.youtube.com/@sdgajahmungkur1018" class="block px-4 py-2 hover:bg-gray-200 transition duration-200">Video</a>
                         </li>
                     </ul>
                 </li>
@@ -101,5 +101,4 @@
             </div>
         </div>
     </div>
-    <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
 </nav>

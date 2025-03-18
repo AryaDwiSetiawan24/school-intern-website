@@ -20,5 +20,4 @@
                 </div>
             @endforeach
         </div>
-    </div>
 </x-user-layout>

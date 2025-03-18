@@ -17,12 +17,18 @@ class PegawaiController extends Controller
     }
 
     // tampil di admin
+    public function create()
+    {
+        return view('pegawai.create');
+    } 
+
     public function store(Request $request)
     {
         $request->validate([
             'nama' => 'required|string|max:255',
             'alamat' => 'required',
             'jabatan' => 'required|string|max:255',
+            'role' => 'required',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
@@ -30,12 +36,17 @@ class PegawaiController extends Controller
         $pegawai->nama = $request->nama;
         $pegawai->alamat = $request->alamat;
         $pegawai->jabatan = $request->jabatan;
+        $pegawai->role = $request->role;
         if ($request->hasFile('foto')) {
             $pegawai->foto = $request->file('foto')->store('images', 'public');
         }
         $pegawai->save();
 
-        return redirect()->route('pegawai.create')->with('success', 'Pegawai created successfully.');
+        if ($pegawai) {
+            return redirect()->route('pegawai.create')->with('success', 'Pegawai created successfully.');
+        } else {
+            return redirect()->route('pegawai.create')->with('error', 'Failed to create Pegawai.');
+        }
     }
 
     public function edit($id)
@@ -49,7 +60,8 @@ class PegawaiController extends Controller
         $request->validate([
             'nama' => 'required|string|max:255',
             'alamat' => 'required',
-            'jabatan' => 'required|string|max:255',
+            'jabatan' => 'required|string|max:100',
+            'role' => 'required',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
@@ -57,6 +69,7 @@ class PegawaiController extends Controller
         $pegawai->nama = $request->nama;
         $pegawai->alamat = $request->alamat;
         $pegawai->jabatan = $request->jabatan;
+        $pegawai->role = $request->role;
 
         if ($request->hasFile('foto')) {
             if ($pegawai->foto) {

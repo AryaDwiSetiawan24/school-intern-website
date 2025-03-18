@@ -58,19 +58,22 @@
             <x-dashboard.dashboard-card-08 />
 
             <!-- Stacked bar chart (Sales VS Refunds) -->
-            <x-dashboard.dashboard-card-09 />
+            <x-dashboard.dashboard-card-09 /> --}}
 
-            <!-- Card (Customers) -->
-            <x-dashboard.dashboard-card-10 />
+            <!-- Card (pegawai) -->
+            <x-dashboard.dashboard-card-10 
+            :pegawais="$pegawais"/>
 
-            <!-- Card (Reasons for Refunds) -->
+            <!-- Card (Siswa) -->
             <x-dashboard.dashboard-card-11 />             
 
-            <!-- Card (Recent Activity) -->
-            <x-dashboard.dashboard-card-12 />
+            <!-- Card (Berita) -->
+            <x-dashboard.dashboard-card-12 
+            :beritasTerbaru="$beritasTerbaru" 
+            :beritasTerlama="$beritasTerlama"/>
             
-            <!-- Card (Income/Expenses) -->
-            <x-dashboard.dashboard-card-13 /> --}}
+            <!-- Card (Aduan) -->
+            <x-dashboard.dashboard-card-13 />
 
         </div>
 
