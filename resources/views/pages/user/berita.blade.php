@@ -3,55 +3,52 @@
         <div class="pt-24 px-4">
             <div class="max-w-6xl mx-auto mb-8">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-                    <div>
-                        <h1 class="text-3xl font-bold text-blue-900">Latest News</h1>
-                        <p class="text-gray-600">Stay updated with our most recent articles</p>
+                    <div class="fade-in-up">
+                        <h1 class="text-5xl font-bold text-white animate-fade-in drop-shadow-lg">Berita Terbaru</h1>
+                        <p class="text-gray-300 text-lg">Tetap terupdate dengan informasi terbaru dari kami</p>
                     </div>
                     
-                    <!-- Search Form -->
-                    <div class="mt-4 md:mt-0 w-full md:w-auto">
-                        <form action="{{ route('berita.index') }}" method="GET" class="flex">
+                    <!-- Form Pencarian -->
+                    <div class="mt-4 md:mt-0 w-full md:w-auto fade-in-up">
+                        <form action="{{ route('berita.index') }}" method="GET" class="flex shadow-lg">
                             <input type="text" name="search" value="{{ request('search') }}" 
-                                placeholder="Search news..." 
-                                class="px-4 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-2 focus:ring-blue-500 w-full md:w-64">
-                            <button type="submit" class="bg-blue-900 text-white px-4 py-2 rounded-r hover:bg-blue-800">
-                                <i class="fas fa-search"></i>
+                                placeholder="Cari berita..." 
+                                class="px-4 py-3 border border-gray-500 rounded-l focus:outline-none focus:ring-2 focus:ring-blue-400 w-full md:w-64 text-gray-700">
+                            <button type="submit" class="px-5 py-3 bg-blue-600 text-white rounded-r hover:bg-blue-700 transition-all duration-300 transform hover:scale-105">
+                                Cari
                             </button>
                         </form>
                     </div>
                 </div>
                 
-                <!-- Categories -->
-               
-                
-                <!-- Sort & Filter Options -->
-                <div class="mt-6 flex justify-between items-center">
+                <!-- Kategori dan Filter -->
+                <div class="mt-6 flex justify-between items-center fade-in-up">
                     <div class="flex items-center gap-2">
-                        <span class="text-gray-600">Sort by:</span>
-                        <select name="sort" onchange="window.location.href=this.value" class="border border-gray-300 rounded px-2 py-1">
+                        <span class="text-gray-300">Urutkan:</span>
+                        <select name="sort" onchange="window.location.href=this.value" class="border border-gray-500 rounded px-2 py-1 text-gray-700">
                             <option value="{{ route('berita.index', array_merge(request()->except('sort'), ['sort' => 'latest'])) }}"
                                 {{ request('sort', 'latest') == 'latest' ? 'selected' : '' }}>
-                                Latest
+                                Terbaru
                             </option>
                             <option value="{{ route('berita.index', array_merge(request()->except('sort'), ['sort' => 'oldest'])) }}"
                                 {{ request('sort') == 'oldest' ? 'selected' : '' }}>
-                                Oldest
+                                Terlama
                             </option>
                             <option value="{{ route('berita.index', array_merge(request()->except('sort'), ['sort' => 'popular'])) }}"
                                 {{ request('sort') == 'popular' ? 'selected' : '' }}>
-                                Most Popular
+                                Paling Populer
                             </option>
                         </select>
                     </div>
                     
                     <div>
-                        <span class="text-gray-600">Showing {{ $beritas->firstItem() ?? 0 }}-{{ $beritas->lastItem() ?? 0 }} of {{ $beritas->total() ?? 0 }} articles</span>
+                        <span class="text-gray-300">Menampilkan {{ $beritas->firstItem() ?? 0 }}-{{ $beritas->lastItem() ?? 0 }} dari {{ $beritas->total() ?? 0 }} artikel</span>
                     </div>
                 </div>
             </div>
-            
+
             @if($beritas->count() > 0)
-                <div class="max-w-6xl mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="max-w-6xl mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in-up">
                     @foreach ($beritas as $berita)
                     <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                         <div class="relative">
@@ -87,7 +84,7 @@
 
                             <div class="mt-4 flex justify-between items-center">
                                 <a href="{{ route('berita.show', $berita->slug) }}" class="text-blue-900 font-bold inline-block hover:text-blue-700">
-                                    READ MORE <i class="fas fa-chevron-right"></i>
+                                    BACA SELENGKAPNYA <i class="fas fa-chevron-right"></i>
                                 </a>
                                 
                                 <div class="flex space-x-2">
@@ -98,31 +95,6 @@
                         </div>
                     </div>
                     @endforeach
-                </div>
-                
-                <div class="max-w-6xl mx-auto mt-8 flex justify-center">
-                    {{ $beritas->appends(request()->except('page'))->links() }}
-                </div>
-            @else
-                <div class="max-w-6xl mx-auto">
-                    <div class="bg-white p-8 rounded-lg shadow-md text-center">
-                        <div class="text-6xl text-gray-300 mb-4">
-                            <i class="far fa-newspaper"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-700">No articles found</h3>
-                        <p class="text-gray-500 mt-2">
-                            @if(request('search'))
-                                No results found for "{{ request('search') }}". Try a different search term.
-                            @elseif(request('category'))
-                                No articles available in this category yet.
-                            @else
-                                No articles have been published yet. Please check back later.
-                            @endif
-                        </p>
-                        <a href="{{ route('berita.index') }}" class="mt-4 inline-block px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-700">
-                            View All News
-                        </a>
-                    </div>
                 </div>
             @endif
         </div>
