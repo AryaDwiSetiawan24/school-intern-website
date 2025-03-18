@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\GalleryController;
 
-// Halaman admin
+
+//  Halaman admin
 Route::redirect('/', 'login');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
@@ -29,6 +31,20 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/pegawai/{id}/edit', [PegawaiController::class, 'edit'])->name('pegawai.edit');
     Route::put('/pegawai/{id}', [PegawaiController::class, 'update'])->name('pegawai.update');
     Route::delete('/pegawai/{id}', [PegawaiController::class, 'destroy'])->name('pegawai.destroy');
+
+
+    Route::get('/galeri', [GalleryController::class, 'index'])->name('galeri.index');
+    Route::get('/galeri/tambah-album', [GalleryController::class, 'create'])->name('galeri.create');
+    Route::post('/galeri', [GalleryController::class, 'store'])->name('galeri.store');
+    Route::get('/galeri/album/{album}/edit', [GalleryController::class, 'edit'])->name('galeri.editAlbum');
+    Route::get('/galeri/album/{album}', [GalleryController::class, 'showAlbum'])->name('galeri.showAlbum');
+    Route::put('/galeri/{album}', [GalleryController::class, 'update'])->name('galeri.update');
+    Route::delete('/galeri/{album}', [GalleryController::class, 'destroy'])->name('galeri.destroy');
+    
+    Route::post('/galeri/{album}/upload', [GalleryController::class, 'uploadPhoto'])->name('galeri.upload');
+    Route::get('/galeri/photo/{photo}/edit', [GalleryController::class, 'editPhoto'])->name('galeri.editPhoto');
+    Route::put('/galeri/photo/{photo}', [GalleryController::class, 'updatePhoto'])->name('galeri.updatePhoto');
+    Route::delete('/galeri/photo/{photo}', [GalleryController::class, 'deletePhoto'])->name('galeri.deletePhoto');
 
     // route sementara
     Route::get('/settings/account', function () {

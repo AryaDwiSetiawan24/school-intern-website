@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\pegawai;
 use App\Models\berita;
+use App\Models\Album;
+use App\Models\Photo;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 
 class DashboardController extends Controller
@@ -50,12 +53,6 @@ SDN Gajahmungkur 01 berdiri pada tahun 1967 yang berada di sekitar pemukiman war
         return view('pages/user/pegawai', compact('pegawai'));
     }
 
-    public function foto()
-    {
-        return view('pages/user/galeri-foto');
-    }
-
-
     public function kontak()
     {
         return view('pages/user/kontak');
@@ -65,4 +62,25 @@ SDN Gajahmungkur 01 berdiri pada tahun 1967 yang berada di sekitar pemukiman war
     {
         return view('pages/user/pengaduan');
     }
+
+    public function foto()
+    {
+        $albums = Album::with('photos')->get();
+        return view('pages/user/galeri-foto', compact('albums'));
+    }
+    public function showFoto($id)
+{
+    $album = Album::with('photos')->findOrFail($id);
+
+    $photos = $album->photos->map(function ($photo) {
+        return [
+            'id' => $photo->id,
+            'url' => Storage::url($photo->photo),
+            'caption' => $photo->caption,
+        ];
+    });
+
+    return view('pages/user/album', compact('album', 'photos'));
+}
+
 }
