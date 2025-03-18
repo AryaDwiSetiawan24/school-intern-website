@@ -245,7 +245,7 @@
     </section>
 
     <!-- Change the colour #f8fafc to match the previous section colour -->
-    <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg"
+    <svg class="wave-top bg-gradient-to-r from-[#d53369] to-[#daae51]" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink">
         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
@@ -271,7 +271,7 @@
             </g>
         </g>
     </svg>
-    <section class="bg-gray-800 text-white py-16 px-4">
+    <section class="bg-gradient-to-r from-[#d53369] to-[#daae51] text-white py-16 px-4">
         <div class="container mx-auto max-w-7xl">
             <!-- Header -->
             <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
