@@ -1,6 +1,5 @@
 <x-user-layout>
-    <div class="pt-24 bg-cover bg-center h-[400px] relative"
-        style="background-image: url('{{ asset('images/sdn01gajahmungkur.png') }}'); background-attachment: fixed">
+    <div class="pt-24 bg-cover bg-center h-[400px] relative bg-[url({{ asset('images/sdn01gajahmungkur.png') }})] bg-fixed">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 bg-cover bg-center" aria-hidden="true">
             <div class="absolute inset-0 bg-black bg-opacity-40"></div>

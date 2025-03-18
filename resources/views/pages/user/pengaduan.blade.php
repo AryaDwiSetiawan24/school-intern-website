@@ -1,11 +1,11 @@
 <x-user-layout>
-    <section class="py-24 bg-white">
+    <section class="py-20 bg-gray-400">
         <div class="container mx-auto px-6">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-bold text-blue-800 mb-4">Layanan Pengaduan</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">Sampaikan saran, kritik, atau laporan Anda untuk membantu kami meningkatkan kualitas layanan pendidikan di SD N Gajahmungkur 01.</p>
             </div>
-
+            
             <div class="max-w-5xl mx-auto" data-aos="fade-up">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <!-- Form Card - Take 2/3 of the space -->
@@ -13,7 +13,7 @@
                         <div class="bg-white rounded-lg shadow-lg border border-gray-200 p-8">
                             <form action="{{ route('pengaduan.store') }}" method="POST" class="space-y-6">
                                 @csrf
-
+                                
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <!-- Nama Field -->
                                     <div>
@@ -27,7 +27,7 @@
                                             <input type="text" name="name" id="name" placeholder="Masukkan Nama Lengkap" class="pl-10 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-3 border" required>
                                         </div>
                                     </div>
-
+                                    
                                     <!-- Email Field -->
                                     <div>
                                         <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Surel <span class="text-red-500">*</span></label>
@@ -42,7 +42,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                
                                 <!-- Contact Number Field -->
                                 <div>
                                     <label for="contact_no" class="block text-sm font-medium text-gray-700 mb-2">Nomor Kontak <span class="text-red-500">*</span></label>
@@ -55,7 +55,7 @@
                                         <input type="text" name="contact_no" id="contact_no" placeholder="Masukkan Nomor Telepon" class="pl-10 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-3 border" required>
                                     </div>
                                 </div>
-
+                                
                                 <!-- Description Field -->
                                 <div>
                                     <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Deskripsi Pengaduan <span class="text-red-500">*</span></label>
@@ -82,7 +82,7 @@
                             </form>
                         </div>
                     </div>
-
+                    
                     <!-- Info Sidebar - Take 1/3 of the space -->
                     <div class="lg:col-span-1">
                         @if(session('success'))
@@ -95,7 +95,7 @@
                             </div>
                         </div>
                         @endif
-
+                        
                         <!-- Additional Information -->
                         <div class="bg-blue-50 rounded-lg p-6 border-l-4 border-blue-500 shadow-md">
                             <h3 class="text-lg font-semibold text-blue-800 mb-4">Informasi Tambahan</h3>
@@ -123,6 +123,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+</div>
     </section>
 </x-user-layout>
