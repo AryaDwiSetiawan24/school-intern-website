@@ -50,7 +50,7 @@
                 if (makeWhite) {
                     // White background appearance
                     header.classList.add("bg-white");
-                    header.classList.remove("bg-opacity-0");
+                    header.classList.remove("bg-opacity-40");
                     header.classList.add("text-gray-800");
                     header.classList.remove("text-white");
                     navAction.classList.remove("bg-white");
@@ -68,7 +68,7 @@
                 } else {
                     // Transparent background appearance
                     header.classList.remove("bg-white");
-                    header.classList.add("bg-opacity-0");
+                    header.classList.add("bg-opacity-40");
                     header.classList.remove("text-gray-800");
                     header.classList.add("text-white");
                     navAction.classList.remove("gradient");
