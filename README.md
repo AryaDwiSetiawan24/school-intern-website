@@ -55,7 +55,7 @@ Setelah terinstall, setiap ingin menjalankan projek, ketik ``npm run dev`` di te
 Seteleh semua itu baru jalankan perintah berikut:
 
 ``php artisan serve``
-
+``php artisan storage:link``
 
 ## Credits
 

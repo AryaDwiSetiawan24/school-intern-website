@@ -4,7 +4,6 @@
         <div class="relative h-screen flex justify-center items-center bg-cover bg-center bg-[url({{ asset('images/sdn01gajahmungkur.png') }})] bg-fixed">
             <!-- Overlay gelap agar teks lebih terbaca -->
             <div class="absolute inset-0 bg-gradient-to-r from-[#d53369] to-[#daae51]/25"></div>
-
             <div class="container px-4 mx-auto flex flex-col md:flex-row justify-center items-center relative">
                 <!-- Konten -->
                 <div class="flex flex-col w-full md:w-2/5 justify-center items-center text-white text-center md:text-left">
@@ -293,7 +292,7 @@
                 <div class="flex overflow-x-auto gap-6 pb-8 pt-2 px-2 -mx-2 scroll-smooth" id="teacherSlider" style="scrollbar-width: none; -ms-overflow-style: none;">
 
                     @foreach ($pegawai as $staff)
-                    <div class="text-center flex-shrink-0 mx-2 overflow-hidden w-60 md:w-48 lg:w-56 xl:w-64">
+                    <div class="text-center pt-2 flex-shrink-0 mx-2 overflow-hidden w-60 md:w-48 lg:w-56 xl:w-64">
                         <div class="relative overflow-hidden bg-white rounded-xl shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                             <img
                                 alt="{{ $staff->nama }}"

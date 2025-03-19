@@ -66,7 +66,7 @@ class BeritaController extends Controller
         }
         $berita->save();
 
-        return redirect()->route('berita.add')->with('success', 'Berita created successfully.');
+        return redirect()->route('berita.page')->with('success', 'Berita berhasil ditambahkan.');
     }
 
     // show berita detail di admin
