@@ -28,27 +28,27 @@
         <div class="container max-w-6xl mx-auto px-4">
             <div class="flex flex-wrap justify-center gap-4">
                 <button class="filter-btn px-5 py-2 rounded-full bg-gradient-to-r from-[#d53369] to-[#daae51] text-white active"
-                    data-filter="kelas1">
+                    data-filter="1">
                     Kelas 1
                 </button>
                 <button class="filter-btn px-5 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300"
-                    data-filter="kelas2">
+                    data-filter="2">
                     Kelas 2
                 </button>
                 <button class="filter-btn px-5 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300"
-                    data-filter="kelas3">
+                    data-filter="3">
                     Kelas 3
                 </button>
                 <button class="filter-btn px-5 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300"
-                    data-filter="kelas4">
+                    data-filter="4">
                     Kelas 4
                 </button>
                 <button class="filter-btn px-5 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300"
-                    data-filter="kelas5">
+                    data-filter="5">
                     Kelas 5
                 </button>
                 <button class="filter-btn px-5 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300"
-                    data-filter="kelas6">
+                    data-filter="6">
                     Kelas 6
                 </button>
             </div>
@@ -60,11 +60,14 @@
         <div class="container max-w-6xl mx-auto px-4">
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6" id="siswa-items">
                 @foreach ($siswas as $siswa)
-                <div class="siswa-item" data-kelas="kelas{{ $siswa->kelas }}">
+                <div class="siswa-item" data-kelas="{{ $siswa->kelas }}">
                     <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer transition-all duration-300 hover:shadow-xl">
                         <img src="{{ ($siswa->foto) ? asset('storage/'.$siswa->foto) : 'https://placehold.co/200x300?text=No+Image' }}" 
                              alt="{{ $siswa->nama }}" 
                              class="w-full h-64 object-cover transition-all duration-500 group-hover:scale-110">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
+                            <p class="text-white text-sm">{{ $siswa->jenis_kelamin }}</p>
+                        </div>
                     </div>
                     <div class="p-4 w-full text-black text-center">
                         <h3 class="font-semibold text-lg">{{ $siswa->nama }}</h3>
@@ -73,12 +76,6 @@
                     </div>
                 </div>
                 @endforeach
-            </div>
-
-            <div class="text-center mt-10">
-                <button id="load-more" class="px-6 py-3 bg-gradient-to-r from-[#d53369] to-[#daae51] text-white rounded-lg hover:opacity-90 transition-all">
-                    Lihat Lebih Banyak
-                </button>
             </div>
         </div>
     </div>
@@ -89,14 +86,14 @@
             const filterButtons = document.querySelectorAll('.filter-btn');
             const siswaItems = document.querySelectorAll('.siswa-item');
 
-            // Set default filter (kelas1)
-            showFilteredItems('kelas1');
+            // Set default filter (kelas 1)
+            showFilteredItems('1');
 
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     // Remove active class from all buttons
                     filterButtons.forEach(btn => {
-                        btn.classList.remove('active', 'bg-gradient-to-r', 'from-[#d53369]', 'to-[#daae51]');
+                        btn.classList.remove('active', 'bg-gradient-to-r', 'from-[#d53369]', 'to-[#daae51]', 'text-white');
                         btn.classList.add('bg-gray-200', 'text-gray-700');
                     });
 
@@ -106,10 +103,6 @@
 
                     const filter = this.getAttribute('data-filter');
                     showFilteredItems(filter);
-                    
-                    // Reset visibleItems count when changing filter
-                    visibleItems = 12;
-                    updateVisibility();
                 });
             });
             
@@ -123,40 +116,6 @@
                     }
                 });
             }
-
-            // Load more functionality
-            const loadMoreBtn = document.getElementById('load-more');
-            let visibleItems = 12; // Initial number of visible items
-
-            function updateVisibility() {
-                let currentFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
-                let relevantItems = document.querySelectorAll(`.siswa-item[data-kelas="${currentFilter}"]`);
-
-                let count = 0;
-                relevantItems.forEach((item, index) => {
-                    if (index < visibleItems) {
-                        item.style.display = 'block';
-                        count++;
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-
-                // Hide load more button if all items are visible
-                if (count >= relevantItems.length) {
-                    loadMoreBtn.style.display = 'none';
-                } else {
-                    loadMoreBtn.style.display = 'inline-block';
-                }
-            }
-
-            // Initial visibility setup
-            updateVisibility();
-
-            loadMoreBtn.addEventListener('click', function() {
-                visibleItems += 12; // Show 12 more items
-                updateVisibility();
-            });
         });
     </script>
 </x-user-layout>
