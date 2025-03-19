@@ -33,7 +33,16 @@
                 <label for="foto" class="block text-gray-700">Foto</label>
                 <input type="file" name="foto" id="foto" class="w-full px-4 py-2 border rounded">
             </div>
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Simpan</button>
+            @if (session('success'))
+                <div class="mb-4 text-green-500">
+                    {{ session('success') }}
+                </div>
+            @elseif (session('error'))
+                <div class="mb-4 text-red-500">
+                    {{ session('error') }}
+                </div>
+            @endif
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Simpan</button>
         </form>
     </div>
 </x-app-layout>

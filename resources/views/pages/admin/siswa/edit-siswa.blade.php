@@ -48,7 +48,7 @@
                 <div class="mt-4">
                     <strong>Foto Saat Ini:</strong>
                     <br>
-                    <img id="preview" src="{{ $siswa->foto ? asset('storage/' . $siswa->foto) : asset('images/default.png') }}" 
+                    <img id="preview" src="{{ $siswa->foto ? asset('storage/' . $siswa->foto) : 'https://placehold.co/200x300?text=No+Image' }}" 
                          alt="Foto Siswa" class="mt-2 w-32 h-32 object-cover rounded-md border">
                 </div>
             </div>

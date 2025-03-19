@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="container mx-auto p-8 bg-white shadow-xl rounded-lg max-w-2xl">
         <div class="flex items-center mb-6">
-            <img src="{{ $siswa->foto ? asset('storage/' . $siswa->foto) : asset('images/default.png') }}" 
+            <img src="{{ $siswa->foto ? asset('storage/' . $siswa->foto) : 'https://placehold.co/200x300?text=No+Image' }}" 
                  alt="Foto Siswa" class="w-32 h-32 object-cover rounded-full border-4 border-gray-200 shadow-md">
             <div class="ml-6">
                 <h1 class="text-4xl font-bold text-gray-900">{{ $siswa->nama }}</h1>

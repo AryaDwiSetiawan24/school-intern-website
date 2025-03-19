@@ -32,7 +32,7 @@
                 <div class="mt-4">
                     <strong>Gambar Saat Ini:</strong>
                     <br>
-                    <img id="preview" src="{{ $berita->gambar ? asset('storage/' . $berita->gambar) : asset('images/default.png') }}" 
+                    <img id="preview" src="{{ $berita->gambar ? asset('storage/' . $betita->gambar) : 'https://placehold.co/200x300?text=No+Image' }}" 
                          alt="Gambar Berita" class="mt-2 w-32 h-32 object-cover rounded-md border">
                 </div>
             </div>

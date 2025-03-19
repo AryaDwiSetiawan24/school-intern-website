@@ -28,7 +28,7 @@
                     @foreach ($siswas as $siswa)
                         <tr class="border-b">
                             <td class="py-3 px-6">
-                                <img src="{{ $siswa->foto ? asset('storage/' . $siswa->foto) : asset('images/default.png') }}" 
+                                <img src="{{ $siswa->foto ? asset('storage/' . $siswa->foto) : 'https://placehold.co/200x300?text=No+Image' }}" 
                                      alt="Foto Siswa" 
                                      class="w-16 h-16 object-cover rounded-md border">
                             </td>

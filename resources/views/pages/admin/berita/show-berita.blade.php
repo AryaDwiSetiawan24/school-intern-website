@@ -18,7 +18,7 @@
             <a href="{{ url()->previous() }}" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-lg transition">
                 Kembali
             </a>
-            <a href="{{ route('berita.edit', $berita->id) }}" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg shadow-lg transition">
+            <a href="{{ route('berita.edit', $berita->slug) }}" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg shadow-lg transition">
                 Edit
             </a>
         </div>

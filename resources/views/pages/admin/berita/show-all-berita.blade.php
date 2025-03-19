@@ -26,7 +26,7 @@
                     @foreach ($beritas as $berita)
                         <tr class="border-b">
                             <td class="py-3 px-6">
-                                <img src="{{ $berita->gambar ? asset('storage/' . $berita->gambar) : asset('images/default.png') }}" 
+                                <img src="{{ $berita->gambar ? asset('storage/' . $berita->gambar) : 'https://placehold.co/200x300?text=No+Image' }}" 
                                      alt="Gambar Berita" 
                                      class="w-16 h-16 object-cover rounded-md border">
                             </td>
@@ -38,7 +38,7 @@
                                 <form action="{{ route('berita.destroy', $berita->id) }}" method="POST" class="inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded shadow">Hapus</button>
+                                    <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded shadow" onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
                                 </form>
                             </td>
                         </tr>

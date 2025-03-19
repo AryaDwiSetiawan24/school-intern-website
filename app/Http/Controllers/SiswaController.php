@@ -37,7 +37,7 @@ class SiswaController extends Controller
         $request->validate([
             'nisn' => 'required|unique:siswas,nisn',
             'nama' => 'required|string|max:255',
-            'jenis_kelamin' => 'nullable|in:Laki-laki,Perempuan',
+            'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
             'kelas' => 'required|string|max:100',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
@@ -52,7 +52,11 @@ class SiswaController extends Controller
         }
         $siswa->save();
 
-        return redirect()->route('siswa.page')->with('success', 'Siswa berhasil ditambahkan.');
+        if ($siswa) {
+            return redirect()->route('siswa.add')->with('success', 'Siswa berhasil ditambahkan.');
+        } else {
+            return redirect()->route('siswa.add')->with('error', 'Data siswa gagal ditambahkan.');
+        }
     }
 
     // Tampilkan form edit siswa
@@ -76,7 +80,7 @@ class SiswaController extends Controller
         $siswa = Siswa::findOrFail($id);
         $siswa->nisn = $request->nisn;
         $siswa->nama = $request->nama;
-        $siswa->jenis_kelamin = $request->jenis_kelamin ?? null; // ✅ Bisa NULL
+        $siswa->jenis_kelamin = $request->jenis_kelamin;
         $siswa->kelas = $request->kelas;
         if ($request->hasFile('foto')) {
             $siswa->foto = $request->file('foto')->store('images', 'public');
