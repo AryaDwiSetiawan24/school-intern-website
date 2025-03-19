@@ -1,91 +1,111 @@
 <x-user-layout>
-    <!-- Album Header Section -->
-    <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
-            <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ $album->name }}</h2>
-            <p class="text-gray-600 text-sm">{{ $album->description }}</p>
-        </div>
-         
-        <!-- Photo Gallery Grid -->
-        <div class="bg-white rounded-lg shadow-sm p-6">
-            <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                Galeri Foto
-            </h2>
-            
-            @if(count($album->photos) > 0)
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    @foreach ($album->photos as $index => $photo)
-                    <div class="group bg-gray-50 rounded-lg overflow-hidden shadow-md transition transform hover:-translate-y-1 hover:shadow-lg">
-                        <div class="relative h-48">
-                            <img src="{{ Storage::url($photo->photo) }}" alt="{{ $photo->caption }}" 
-                                class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-black bg-opacity-80 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex justify-center items-center space-x-2">
-                                <button type="button" 
-                                    class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md text-sm font-medium transition"
-                                    onclick="openPhotoModal({{ $index }})">
-                                    <span class="flex items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                        </svg>
-                                        Lihat Foto
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <p class="text-gray-700 text-sm">{{ $photo->caption }}</p>
-                        </div>
+    <!-- Album Header Section with enhanced styling -->
+    <div class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 pt-24">
+        <nav class="flex items-center text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="{{ route('userDashboard') }}" class="inline-flex items-center text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-home mr-2"></i>Beranda
+                    </a>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <i class="fas fa-chevron-right mx-2 text-gray-400"></i>
+                        <a href="{{ route('foto.index') }}" class="text-gray-500 hover:text-gray-700">Galeri Foto</a>
                     </div>
-                    @endforeach
+                </li>
+                <li aria-current="page">
+                    <div class="flex items-center">
+                        <i class="fas fa-chevron-right mx-2 text-gray-400"></i>
+                        <span class="text-gray-700 font-medium">{{ $album->name }}</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8 border border-gray-200">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">{{ $album->name }}</h2>
+            <p class="text-gray-600 text-sm md:text-base">{{ $album->description }}</p>
+            <div class="flex items-center mt-4 pt-4 border-t border-gray-100">
+                <i class="fas fa-calendar-alt text-gray-400 mr-1.5"></i>
+                <span class="text-xs text-gray-400">{{ $album->created_at->format('d M Y') }}</span>
+            </div>
+        </div>
+
+        <!-- Photo Gallery Grid with consistent styling -->
+        <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl font-semibold text-gray-800 flex items-center">
+                    <i class="fas fa-images text-blue-600 mr-2"></i>
+                    Galeri Foto
+                </h2>
+                <span class="text-sm text-gray-500">{{ count($album->photos) }} foto</span>
+            </div>
+
+            @if(count($album->photos) > 0)
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6">
+                @foreach ($album->photos as $index => $photo)
+                <div class="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200 cursor-pointer"
+                    onclick="openPhotoModal({{ $index }})">
+
+                    <div class="relative aspect-square cursor-zoom-in">
+                        <img src="{{ Storage::url($photo->photo) }}"
+                            alt="{{ $photo->caption ?? 'Gambar tanpa keterangan' }}"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+
+                    <div class="p-4">
+                        <p class="text-gray-700 text-sm line-clamp-2">{{ $photo->caption ?? 'Tanpa keterangan' }}</p>
+                    </div>
                 </div>
+                @endforeach
+            </div>
             @else
-                <div class="text-center py-10 text-gray-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto text-gray-400 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <p>Belum ada foto dalam album ini.</p>
-                </div>
+            <div class="text-center py-16 text-gray-500 bg-gray-50 rounded-lg">
+                <i class="fas fa-image fa-4x text-gray-300 mb-4"></i>
+                <p class="text-lg font-medium">Belum ada foto dalam album ini.</p>
+                <p class="text-sm text-gray-400 mt-2">Tambahkan foto pertama ke album ini.</p>
+            </div>
             @endif
         </div>
     </div>
 
-    <!-- Photo Modal - UPDATED to be larger with minimal UI -->
+    <!-- Photo Modal with improved styling -->
     <div id="photoModal" class="fixed inset-0 z-50 hidden overflow-hidden">
-        <div class="fixed inset-0 bg-black bg-opacity-90 transition-opacity" onclick="closePhotoModal()"></div>
-        
+        <div class="fixed inset-0 bg-black bg-opacity-95 backdrop-blur-sm transition-opacity" onclick="closePhotoModal()"></div>
+
         <div class="relative w-full h-full flex items-center justify-center">
-            <!-- Simplified modal without white background, taking up 80% of screen -->
+            <!-- Modal content -->
             <div class="relative w-4/5 h-4/5 flex items-center justify-center">
-                <!-- Image container -->
-                <img id="modalImage" src="" alt="" class="max-w-full max-h-full object-contain">
-                
-                <!-- Navigation buttons - simplified -->
-                <button type="button" class="absolute left-2 text-white hover:text-gray-300 focus:outline-none" onclick="prevPhoto()">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
+                <!-- Image container with loading indicator -->
+                <div class="relative">
+                    <img id="modalImage" src="" alt="" class="max-w-full max-h-full object-contain">
+                    <div id="imageLoading" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
+                        <i class="fas fa-spinner fa-spin fa-2x text-white"></i>
+                    </div>
+                </div>
+
+                <!-- Navigation buttons - enhanced -->
+                <button type="button" class="absolute left-4 text-white hover:text-blue-500 focus:outline-none transition-colors duration-200" onclick="prevPhoto()">
+                    <i class="fas fa-chevron-left fa-2x md:fa-3x"></i>
                 </button>
-                <button type="button" class="absolute right-2 text-white hover:text-gray-300 focus:outline-none" onclick="nextPhoto()">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
+                <button type="button" class="absolute right-4 text-white hover:text-blue-500 focus:outline-none transition-colors duration-200" onclick="nextPhoto()">
+                    <i class="fas fa-chevron-right fa-2x md:fa-3x"></i>
                 </button>
-                
+
                 <!-- Close button -->
-                <button type="button" class="absolute top-0 right-0 text-white hover:text-gray-300 p-2" onclick="closePhotoModal()">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                    </svg>
+                <button type="button" class="absolute top-4 right-4 text-white hover:text-blue-500 p-2 transition-colors duration-200" onclick="closePhotoModal()">
+                    <i class="fas fa-times fa-2x"></i>
                 </button>
             </div>
-            
-            <!-- Caption at bottom -->
+
+            <!-- Caption area with improved styling -->
+            <div class="absolute bottom-8 left-0 right-0 text-center">
+                <p id="modalCaption" class="text-white text-lg px-6 py-3 inline-block bg-black bg-opacity-70 backdrop-blur-sm rounded-lg shadow-lg"></p>
+            </div>
+
+            <!-- Counter -->
             <div class="absolute bottom-4 left-0 right-0 text-center">
-                <p id="modalCaption" class="text-white text-lg px-4 py-2 inline-block bg-black bg-opacity-50 rounded-lg"></p>
+                <p id="photoCounter" class="text-white text-sm px-3 py-1 inline-block bg-black bg-opacity-50 rounded-full"></p>
             </div>
         </div>
     </div>
@@ -93,55 +113,71 @@
     <!-- Create an array of photo data to be used by JavaScript -->
     <script>
         // Create a photos array in JavaScript
-        var photoData = [];
-        
-        @foreach($album->photos as $photo)
-            photoData.push({
+        var photoData = [
+            @foreach($album->photos as $photo)
+            {
                 id: {{ $photo->id }},
                 url: "{{ Storage::url($photo->photo) }}",
-                caption: "{{ $photo->caption }}"
-            });
-        @endforeach
-        
+                caption: "{{ $photo->caption ?? 'Tanpa keterangan' }}"
+            }{{ !$loop->last ? ',' : '' }}
+            @endforeach
+        ];
+
         // Use the photoData array for modal functionality
         let currentPhotoIndex = 0;
         const modal = document.getElementById('photoModal');
         const modalImage = document.getElementById('modalImage');
         const modalCaption = document.getElementById('modalCaption');
-        
+        const photoCounter = document.getElementById('photoCounter');
+        const imageLoading = document.getElementById('imageLoading');
+
         function openPhotoModal(index) {
             currentPhotoIndex = index;
             updateModalContent();
             modal.classList.remove('hidden');
             document.body.classList.add('overflow-hidden');
         }
-        
+
         function closePhotoModal() {
             modal.classList.add('hidden');
             document.body.classList.remove('overflow-hidden');
         }
-        
+
         function updateModalContent() {
+            // Show loading indicator
+            imageLoading.classList.remove('hidden');
+
+            // Get current photo data
             const photo = photoData[currentPhotoIndex];
-            modalImage.src = photo.url;
-            modalImage.alt = photo.caption;
-            modalCaption.textContent = photo.caption;
+
+            // Update counter
+            photoCounter.textContent = `${currentPhotoIndex + 1} / ${photoData.length}`;
+
+            // Preload image
+            const img = new Image();
+            img.onload = function() {
+                modalImage.src = photo.url;
+                modalImage.alt = photo.caption;
+                modalCaption.textContent = photo.caption;
+                imageLoading.classList.add('hidden');
+            };
+            img.src = photo.url;
         }
-        
+
         function nextPhoto() {
             currentPhotoIndex = (currentPhotoIndex + 1) % photoData.length;
             updateModalContent();
         }
-        
+
         function prevPhoto() {
             currentPhotoIndex = (currentPhotoIndex - 1 + photoData.length) % photoData.length;
             updateModalContent();
         }
-        
+
         // Allow keyboard navigation
         document.addEventListener('keydown', function(event) {
             if (modal.classList.contains('hidden')) return;
-            
+
             if (event.key === 'ArrowRight') {
                 nextPhoto();
             } else if (event.key === 'ArrowLeft') {
