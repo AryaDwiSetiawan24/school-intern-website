@@ -8,7 +8,6 @@ use App\Models\berita;
 use App\Models\Album;
 use App\Models\Siswa;
 use App\Models\Photo;
-use App\Models\Siswa;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
