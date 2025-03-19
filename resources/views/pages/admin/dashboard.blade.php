@@ -81,7 +81,7 @@
             <x-dashboard.dashboard-card-12 :beritasTerbaru="$beritasTerbaru" :beritasTerlama="$beritasTerlama" />
 
             <!-- Card (Aduan) -->
-            <x-dashboard.dashboard-card-13 />
+            <x-dashboard.dashboard-card-13 :pengaduan="$pengaduan" />
             
         </div>
     </div>
