@@ -2,7 +2,7 @@
         <h2 class="text-center">Daftar Pengaduan</h2>
         
         @if(session('success'))
-            <div class="alert alert-success">
+            <div class="alert alert-success text-green-500">
                 {{ session('success') }}
             </div>
         @endif
