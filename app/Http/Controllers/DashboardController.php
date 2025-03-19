@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\pegawai;
 use App\Models\berita;
 use App\Models\Album;
+use App\Models\Siswa;
 use App\Models\Photo;
 use App\Models\Siswa;
 use Illuminate\Support\Str;
