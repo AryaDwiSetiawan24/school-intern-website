@@ -1,17 +1,14 @@
 {{-- halaman dashboard user --}}
 <x-user-layout>
-    <div class=" bg-cover bg-center h-screen flex justify-center items-center"
-        style="background-image: url('{{ asset('images/education.jpg') }}'); background-attachment: fixed">
-        <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row justify-center items-center">
-            <!--Left Col-->
-            <div class="flex flex-col w-full md:w-2/5 justify-center items-center md:text-left ">
-                {{-- <p class="uppercase tracking-loose w-full text-center">pendidikan harus nomor satu.</p> --}}
-                <h1 class="my-4 text-5xl font-bold leading-tight  text-center">
-                    SD N 1 SEMARANG
-                </h1>
-                <p class="leading-normal text-lg lg:text-2xl  mb-8 text-center">
-                    Kurikulum disusun dengan baik agar membantu siswa untuk memahami materi yang diajarkan
-                </p>
+    <div class="relative h-screen flex justify-center items-center bg-cover bg-center bg-[url({{ asset('images/sdn01gajahmungkur.png') }})] bg-fixed">
+        <!-- Overlay gelap agar teks lebih terbaca -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#d53369] to-[#daae51]/25"></div>
+
+        <div class="container px-4 mx-auto flex flex-col md:flex-row justify-center items-center relative">
+            <!-- Konten -->
+            <div class="flex flex-col w-full md:w-3/5 justify-center items-center text-white text-center md:text-left">
+                <h1 class="my-4 text-5xl font-bold leading-tight">SD N GAJAHMUNGKUR 01</h1>
+                <p class="leading-normal text-2xl mb-8">Kurikulum disusun dengan baik agar membantu siswa memahami materi yang diajarkan.</p>
             </div>
         </div>
 
@@ -150,15 +147,14 @@
                 </div>
                 @endforeach
             </div>
-            @if(count($beritas) > 9)
+
             <div class="flex justify-center mt-12">
                 <a
                     href="{{ route('berita.index') }}"
-                    class="px-6 py-3 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 transition duration-300 font-medium">
+                    class="px-6 py-3 bg-gradient-to-r from-[#d53369] to-[#daae51] text-white rounded-md hover:bg-gray-300 transition duration-300 font-medium">
                     Lihat Semua Berita
                 </a>
             </div>
-            @endif
         </div>
     </section>
     <section class="bg-gray-100 py-8">
@@ -248,7 +244,7 @@
     </section>
 
     <!-- Change the colour #f8fafc to match the previous section colour -->
-    <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg"
+    <svg class="wave-top bg-gradient-to-r from-[#d53369] to-[#daae51]" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink">
         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
@@ -274,7 +270,7 @@
             </g>
         </g>
     </svg>
-    <section class="bg-gray-800 text-white py-16 px-4">
+    <section class="bg-gradient-to-r from-[#d53369] to-[#daae51] text-white py-16 px-4">
         <div class="container mx-auto max-w-7xl">
             <!-- Header -->
             <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
@@ -295,23 +291,9 @@
 
                 <!-- Teacher Cards Slider -->
                 <div class="flex overflow-x-auto gap-6 pb-8 pt-2 px-2 -mx-2 scroll-smooth" id="teacherSlider" style="scrollbar-width: none; -ms-overflow-style: none;">
-                    <style>
-                        /* Hide scrollbar for Chrome, Safari and Opera */
-                        #teacherSlider::-webkit-scrollbar {
-                            display: none;
-                        }
-
-                        /* Hide scrollbar for IE, Edge and Firefox */
-                        #teacherSlider {
-                            -ms-overflow-style: none;
-                            /* IE and Edge */
-                            scrollbar-width: none;
-                            /* Firefox */
-                        }
-                    </style>
 
                     @foreach ($pegawai as $staff)
-                    <div class="text-center flex-shrink-0 mx-2 overflow-hidden w-60 md:w-48 lg:w-56 xl:w-64">
+                    <div class="text-center pt-2 flex-shrink-0 mx-2 overflow-hidden w-60 md:w-48 lg:w-56 xl:w-64">
                         <div class="relative overflow-hidden bg-white rounded-xl shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                             <img
                                 alt="{{ $staff->nama }}"
@@ -339,7 +321,7 @@
             <div class="text-center mt-10">
                 <a
                     href="/pegawai"
-                    class="inline-block bg-white text-indigo-800 font-bold rounded-full py-4 px-8 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transform transition hover:scale-105 duration-300 ease-in-out">
+                    class="inline-block  text-white font-bold rounded-full py-4 px-8 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transform transition hover:scale-105 duration-300 ease-in-out gradient">
                     Lihat Semua Guru
                 </a>
             </div>
