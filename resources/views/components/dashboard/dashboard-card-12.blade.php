@@ -4,7 +4,7 @@
     </header>
     <div class="p-3">
         <!-- Card content -->
-        <!-- "latest" group -->
+        <!-- "berita terbaru" group -->
         <div>
             <header
                 class="text-xs uppercase text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-700/50 rounded-xs font-semibold p-2">
@@ -30,14 +30,15 @@
                                 <div class="shrink-0 self-end ml-2">
                                     <a class="font-medium text-violet-500 hover:text-violet-600 dark:hover:text-violet-400"
                                         href="{{ route('berita.detail', $beritasTerbaru->slug) }}">
-                                        View >
+                                        View -&gt;
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </li>
                 @endforeach
-                <!-- "oldest" group -->
+
+                <!-- "berita terlama" group -->
                 <div>
                     <header
                         class="text-xs uppercase text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-700/50 rounded-xs font-semibold p-2">
@@ -61,7 +62,7 @@
                                         <div class="shrink-0 self-end ml-2">
                                             <a class="font-medium text-violet-500 hover:text-violet-600 dark:hover:text-violet-400"
                                                 href="{{ route('berita.detail', $beritasTerlama->slug) }}">
-                                                View >
+                                                View -&gt;
                                             </a>
                                         </div>
                                     </div>
@@ -72,3 +73,4 @@
                 </div>
         </div>
     </div>
+</div>

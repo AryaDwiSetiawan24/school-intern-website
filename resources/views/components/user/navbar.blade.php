@@ -46,7 +46,7 @@
                             <a href="/pegawai" class="block px-4 py-2 hover:bg-gray-200 transition duration-200">Guru dan Staff</a>
                         </li>
                         <li>
-                            <a href="/siswa" class="block px-4 py-2 hover:bg-gray-200 transition duration-200">Siswa</a>
+                            <a class="block px-4 py-2 hover:bg-gray-200 transition duration-200" href="/siswa">Siswa</a>
                         </li>
                     </ul>
                 </li>
