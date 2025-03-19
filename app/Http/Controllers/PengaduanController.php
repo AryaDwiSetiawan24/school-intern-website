@@ -26,7 +26,7 @@ class PengaduanController extends Controller
     public function destroy($id)
     {
         Pengaduan::findOrFail($id)->delete();
-        return redirect()->route('pengaduan.show-all-pengaduan')->with('success', 'Pengaduan berhasil dihapus!');
+        return redirect()->route('pengaduan.page')->with('success', 'Pengaduan berhasil dihapus!');
     }
 }
 

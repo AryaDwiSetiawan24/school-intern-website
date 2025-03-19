@@ -45,7 +45,3 @@ Route::get('/pengaduan', function () {
 
 // Route untuk menyimpan pengaduan dari form user
 Route::post('/pengaduan', [PengaduanController::class, 'store'])->name('pengaduan.store');
-
-// Route untuk menampilkan dan menghapus pengaduan di dashboard admin
-Route::get('/admin/pengaduan', [PengaduanController::class, 'index'])->name('pengaduan.show-all-pengaduan');
-Route::delete('/admin/pengaduan/{id}', [PengaduanController::class, 'destroy'])->name('pengaduan.destroy');
