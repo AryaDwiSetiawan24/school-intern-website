@@ -44,4 +44,3 @@ Route::get('/pengaduan', function () {
 
 // Route untuk menyimpan pengaduan dari form user
 Route::post('/pengaduan', [PengaduanController::class, 'store'])->name('pengaduan.store');
-

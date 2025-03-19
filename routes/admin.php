@@ -66,7 +66,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
   Route::delete('/galeri/photo/{photo}', [GalleryController::class, 'deletePhoto'])->name('galeri.deletePhoto');
 
   // Pengaduan
-  // Route::get('/admin/pengaduan', [PengaduanController::class, 'index'])->name('pengaduan.page');
   Route::delete('/admin/pengaduan/{id}', [PengaduanController::class, 'destroy'])->name('pengaduan.destroy');
 
   // route settings
