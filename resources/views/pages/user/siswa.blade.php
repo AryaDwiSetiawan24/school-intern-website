@@ -11,10 +11,8 @@
                     <div class="p-4">
                         <h2 class="text-xl font-bold text-blue-900">{{ $siswa->nama }}</h2>
                         <p class="text-gray-700">NISN: {{ $siswa->nisn }}</p>
+                        <p class="text-gray-700">Jenis Kelamin: {{ $siswa->jenis_kelamin }}</p>
                         <p class="text-gray-700">Kelas: {{ $siswa->kelas }}</p>
-
-                        <a href="{{ route('admin.siswa.show', $siswa->id) }}" class="text-blue-900 font-bold mt-4 inline-block">
-                            DETAIL <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
                 </div>
