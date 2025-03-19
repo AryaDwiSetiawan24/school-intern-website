@@ -8,6 +8,7 @@ use App\Models\berita;
 use App\Models\Album;
 use App\Models\Siswa;
 use App\Models\Photo;
+use App\Models\Siswa;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
@@ -44,9 +45,9 @@ SDN Gajahmungkur 01 berdiri pada tahun 1967 yang berada di sekitar pemukiman war
         $sejarah = $this->getContent('sejarah');
 
         $pegawai = Pegawai::all();
+        $siswas = Siswa::all();
         $beritas = Berita::latest()->paginate(3);
-
-        return view('pages/user/dashboard', compact('pegawai', 'beritas', 'sejarah', 'sambutan'));
+        return view('pages/user/dashboard', compact('pegawai', 'siswas','beritas', 'sejarah', 'sambutan'));
     }
 
     public function profilsekolah()
@@ -59,7 +60,7 @@ SDN Gajahmungkur 01 berdiri pada tahun 1967 yang berada di sekitar pemukiman war
 
     public function siswa()
     {
-        $siswas = Siswa::all();
+        $siswas = Siswa::all(); 
         return view('pages/user/siswa', compact('siswas'));
     }
 

@@ -19,10 +19,9 @@ Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show
 Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
 Route::get('/siswa/{id}', [SiswaController::class, 'show'])->name('siswa.show');
 
-
-
 // Halaman sejarah
 Route::get('/siswa', [DashboardController::class, 'siswa'])->name('siswa.index');
+
 
 // Halaman pegawai
 Route::get('/pegawai', [DashboardController::class, 'pegawai'])->name('pegawai.index');
@@ -38,14 +37,11 @@ Route::get('/profilsekolah', [DashboardController::class, 'profilsekolah'])->nam
 // Halaman kontak
 Route::get('/kontak', [DashboardController::class, 'kontak'])->name('kontak.index');
 
-// Menampilkan halaman form pengaduan (GET)
+
+// Halamam pengaduan
 Route::get('/pengaduan', function () {
     return view('pages.user.pengaduan');
 })->name('pengaduan.create');
 
 // Route untuk menyimpan pengaduan dari form user
 Route::post('/pengaduan', [PengaduanController::class, 'store'])->name('pengaduan.store');
-
-// Route untuk menampilkan dan menghapus pengaduan di dashboard admin
-Route::get('/admin/pengaduan', [PengaduanController::class, 'index'])->name('pengaduan.show-all-pengaduan');
-Route::delete('/admin/pengaduan/{id}', [PengaduanController::class, 'destroy'])->name('pengaduan.destroy');
