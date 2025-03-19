@@ -1,6 +1,5 @@
 <x-app-layout>
     <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
-
         <!-- Dashboard actions -->
         <div class="sm:flex sm:justify-between sm:items-center mb-8">
 
@@ -42,17 +41,13 @@
             <!-- Line chart (Acme Professional) -->
             <x-dashboard.dashboard-card-03 :dataFeed="$dataFeed" /> --}}
 
-            <!-- Bar chart (Direct vs Indirect) -->
-            {{-- <x-dashboard.dashboard-card-04 />
-
             <!-- Line chart (Real Time Value) -->
-            <x-dashboard.dashboard-card-05 />
+            {{-- <x-dashboard.dashboard-card-05 /> --}}
 
-            <!-- Doughnut chart (Top Countries) -->
-            <x-dashboard.dashboard-card-06 />
+
 
             <!-- Table (Top Channels) -->
-            <x-dashboard.dashboard-card-07 />
+            {{-- <x-dashboard.dashboard-card-07 />
 
             <!-- Line chart (Sales Over Time) -->
             <x-dashboard.dashboard-card-08 />
@@ -60,22 +55,34 @@
             <!-- Stacked bar chart (Sales VS Refunds) -->
             <x-dashboard.dashboard-card-09 /> --}}
 
+            <!-- Bar chart (test) -->
+            {{-- <x-dashboard.dashboard-card-04 /> --}}
+
             <!-- Card (pegawai) -->
-            <x-dashboard.dashboard-card-10 
-            :pegawais="$pegawais"/>
+            <x-dashboard.dashboard-card-10 :pegawais="$pegawais" />
+
+            <!-- Doughnut chart (Perbandingan jenis kelamin siswa) -->
+            <x-dashboard.dashboard-card-06 :lakiLaki="$lakiLaki" :perempuan="$perempuan" />
 
             <!-- Card (Siswa) -->
-            <x-dashboard.dashboard-card-11 />             
+            <x-dashboard.dashboard-card-11 
+            :totalSiswa="$totalSiswa" 
+            :lakiLaki="$lakiLaki" 
+            :perempuan="$perempuan" 
+            :kelas1="$kelas1"
+            :kelas2="$kelas2"
+            :kelas3="$kelas3"
+            :kelas4="$kelas4"
+            :kelas5="$kelas5"
+            :kelas6="$kelas6"
+            />
 
             <!-- Card (Berita) -->
-            <x-dashboard.dashboard-card-12 
-            :beritasTerbaru="$beritasTerbaru" 
-            :beritasTerlama="$beritasTerlama"/>
-            
+            <x-dashboard.dashboard-card-12 :beritasTerbaru="$beritasTerbaru" :beritasTerlama="$beritasTerlama" />
+
             <!-- Card (Aduan) -->
             <x-dashboard.dashboard-card-13 />
-
+            
         </div>
-
     </div>
 </x-app-layout>

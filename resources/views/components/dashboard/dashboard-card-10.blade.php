@@ -1,4 +1,4 @@
-<div class="col-span-full xl:col-span-6 bg-white dark:bg-gray-800 shadow-xs rounded-xl">
+<div class="col-span-full xl:col-span-8 bg-white dark:bg-gray-800 shadow-xs rounded-xl">
     <header class="px-5 py-4 border-b border-gray-100 dark:border-gray-700/60">
         <h2 class="font-semibold text-gray-800 dark:text-gray-100">Tenaga pendidikan</h2>
     </header>
@@ -31,10 +31,10 @@
                             <td class="p-2 whitespace-nowrap">
                                 <div class="flex items-center">
                                     <div class="w-10 h-10 shrink-0 mr-2 sm:mr-3">
-                                        <img class="rounded-full h-10"
+                                        <img class="rounded-full h-10 object-cover"
                                             src="{{ $pegawai->foto ? asset('storage/' . $pegawai->foto) : 'https://placehold.co/200x200?text=No+Image' }}" />
                                     </div>
-                                    <div class="font-medium text-gray-800">{{ $pegawai->nama }}</div>
+                                    <div class="font-medium text-gray-800 dark:text-gray-100">{{ $pegawai->nama }}</div>
                                 </div>
                             </td>
                             <td class="p-2 whitespace-nowrap">

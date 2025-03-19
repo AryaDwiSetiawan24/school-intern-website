@@ -12,7 +12,13 @@ class BeritaController extends Controller
     // tampil di user
     public function index(Request $request)
     {
-        $query = Berita::latest(); // Query default menampilkan berita terbaru
+        $sort = $request->query('sort', 'latest');
+
+        // Tentukan arah sorting berdasarkan pilihan user
+        $order = $sort === 'oldest' ? 'asc' : 'desc';
+
+        // Query berita dengan sorting yang bisa diubah
+        $query = Berita::orderBy('created_at', $order);
 
         // Cek apakah ada pencarian
         if ($request->has('search')) {
@@ -21,15 +27,17 @@ class BeritaController extends Controller
                 ->orWhere('isi', 'like', "%$search%");
         }
 
-        $beritas = $query->paginate(6); // Paginate hasil pencarian
+        $beritas = $query->paginate(6);
 
         return view('pages/user/berita', compact('beritas'));
     }
 
+
     public function show($slug)
     {
         $berita = Berita::where('slug', $slug)->firstOrFail();
-        return view('pages/user/show-berita', compact('berita'));
+        $beritaTerbaru = Berita::latest()->limit(5)->get();
+        return view('pages/user/show-berita', compact('berita', 'beritaTerbaru'));
     }
 
     // tampil di admin
@@ -46,7 +54,7 @@ class BeritaController extends Controller
             'judul' => 'required|string|max:255',
             'isi' => 'required',
             'slug' => 'required|unique:beritas',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:10240'
         ]);
 
         $berita = new Berita();
@@ -58,7 +66,7 @@ class BeritaController extends Controller
         }
         $berita->save();
 
-        return redirect()->route('berita.add')->with('success', 'Berita created successfully.');
+        return redirect()->route('berita.page')->with('success', 'Berita berhasil ditambahkan.');
     }
 
     // show berita detail di admin

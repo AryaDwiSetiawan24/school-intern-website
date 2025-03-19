@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             BeritaSeeder::class,
             PegawaiSeeder::class,
+            SiswaSeeder::class,
+            AlbumSeeder::class,
+            PhotoSeeder::class,
         ]);
     }
 }
