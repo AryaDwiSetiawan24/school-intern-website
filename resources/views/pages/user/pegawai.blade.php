@@ -36,7 +36,7 @@
                     Guru
                 </button>
                 <button class="filter-btn px-5 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300"
-                    data-filter="staff">
+                    data-filter="staf">
                     Staf
                 </button>
             </div>
