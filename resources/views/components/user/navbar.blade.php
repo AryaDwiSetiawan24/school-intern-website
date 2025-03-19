@@ -2,7 +2,7 @@
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
         <!-- Logo Section -->
         <div class="pl-4 flex items-center">
-            <a class="toggleColour no-underline  hover:no-underline font-bold text-xl lg:text-2xl flex items-center" href="/">
+            <a class="toggleColour no-underline  hover:no-underline font-bold text-md md:text-xl lg:text-2xl flex items-center" href="/">
                 <img src="/images/logo.png" alt="Logo" class="h-12 md:h-16 fill-current inline mr-3">
                 <span>SD N GAJAHMUNGKUR 01</span>
             </a>
