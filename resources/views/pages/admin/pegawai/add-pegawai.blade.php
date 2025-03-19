@@ -31,8 +31,8 @@
             <label for="foto" class="block text-gray-700">Foto</label>
             <input type="file" name="foto" id="foto" class="form-input w-full rounded-md">
         </div>
-        {{-- alert --}}
         <div class="mb-4">
+            {{-- alert --}}
             @if (session('success'))
                 <div class="mb-4 text-green-500">
                     {{ session('success') }}
@@ -45,43 +45,5 @@
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded">Simpan</button>
         </div>
     </form>
-
-    <h2 class="text-xl font-bold mt-8 mb-4">Data Pegawai</h2>
-    <table class="table-auto w-full border-collapse border border-gray-300">
-        <thead>
-            <tr class="bg-gray-200">
-                <th class="border border-gray-300 px-4 py-2">No</th>
-                <th class="border border-gray-300 px-4 py-2">Nama</th>
-                <th class="border border-gray-300 px-4 py-2">Alamat</th>
-                <th class="border border-gray-300 px-4 py-2">Role</th>
-                {{-- <th class="border border-gray-300 px-4 py-2">Foto</th> --}}
-                <th class="border border-gray-300 px-4 py-2">Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @forelse ($pegawais as $index => $item)
-                <tr>
-                    <td class="border border-gray-300 px-4 py-2 text-center">{{ $index + 1 }}</td>
-                    <td class="border border-gray-300 px-4 py-2">{{ $item->nama }}</td>
-                    <td class="border border-gray-300 px-4 py-2">{{ $item->alamat }}</td>
-                    <td class="border border-gray-300 px-4 py-2">{{ $item->role }}</td>
-                    <td class="border border-gray-300 px-4 py-2 text-center">
-                        <a href="{{ route('pegawai.edit', $item->id) }}" class="text-blue-500 hover:underline">Edit</a>
-                        |
-                        <form action="{{ route('pegawai.destroy', $item->id) }}" method="POST" class="inline-block">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="text-red-500 hover:underline"
-                                onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
-                        </form>
-                    </td>
-                </tr>
-            @empty
-                <tr>
-                    <td colspan="6" class="border border-gray-300 px-4 py-2 text-center">Tidak ada data pegawai</td>
-                </tr>
-            @endforelse
-        </tbody>
-    </table>
     </div>
 </x-app-layout>

@@ -12,9 +12,9 @@
                 <div class="text-center mb-12" data-aos="fade-up">
                     <h2 class="text-4xl font-bold text-gray-800 relative inline-block">
                         Hubungi Kami
-                        <span class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-teal-500"></span>
+                        <span class="absolute bottom-0 left-0 w-full h-1 gradient"></span>
                     </h2>
-                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">SD N 1 Semarang</p>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto uppercase">SDN Gajahmungkur 01</p>
                 </div>
                 <!-- Contact Info Grid -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -24,7 +24,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <h3 class="text-lg font-semibold">Alamat</h3>
-                        <p class="text-gray-600 mt-2">Jl. Cumi-cumi Raya No 2, Bandarharjo, Kec. Semarang Utara, Kota Semarang, Jawa Tengah</p>
+                        <p class="text-gray-600 mt-2">Jl. Cikurai Raya, Gajahmungkur, Kec. Gajahmungkur, Kota Semarang, Jawa Tengah 50232</p>
                     </div>
                     <!-- Contact Card -->
                     <div class="bg-white p-6 rounded-lg shadow-md text-center" data-aos="fade-up" data-aos-delay="200">
@@ -32,8 +32,8 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <h3 class="text-lg font-semibold">Email dan Telepon</h3>
-                        <p class="text-gray-600 mt-2">sdnbandarharjo01@gmail.com</p>
-                        <p class="text-gray-600">Telp: 024-3551189</p>
+                        <p class="text-gray-600 mt-2">sdgajahmungkur01@gmail.com</p>
+                        <p class="text-gray-600">Telp: (024) 8445726</p>
                     </div>
                     <!-- Working Hours Card -->
                     <div class="bg-white p-6 rounded-lg shadow-md text-center" data-aos="fade-up" data-aos-delay="250">
@@ -42,9 +42,9 @@
                         </div>
                         <h3 class="text-lg font-semibold">Jam Kerja</h3>
                         <p class="text-gray-600 mt-2">
-                            Senin - Kamis: 08.00 - 15.00 WIB<br>
-                            Jumat: 08.00 - 11.30 WIB<br>
-                            Sabtu - Minggu: Libur
+                            Senin - Kamis dan Sabtu: 07.00 - 14.45 WIB<br>
+                            Jumat: 07.00 - 11.30 WIB<br>
+                            Minggu: Libur
                         </p>
                     </div>
                 </div>
