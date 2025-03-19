@@ -24,6 +24,7 @@ Route::get('/siswa/{id}', [SiswaController::class, 'show'])->name('siswa.show');
 // Halaman sejarah
 Route::get('/siswa', [DashboardController::class, 'siswa'])->name('siswa.index');
 
+
 // Halaman pegawai
 Route::get('/pegawai', [DashboardController::class, 'pegawai'])->name('pegawai.index');
 

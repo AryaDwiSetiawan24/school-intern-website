@@ -7,6 +7,7 @@ use App\Models\pegawai;
 use App\Models\berita;
 use App\Models\Album;
 use App\Models\Photo;
+use App\Models\Siswa;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
@@ -32,8 +33,9 @@ Jarak tempuh ± 15 menit dari kota Propinsi, SD Negeri Gajahmungkur 01 terdiri d
 
 SDN Gajahmungkur 01 berdiri pada tahun 1967 yang berada di sekitar pemukiman warga Kalilangse. Area bangunan SDN Gajahmungkur 01 satu kompleks dengan SDN Gajahmungkur 02 pada saat itu. Tahun 2002 bagungan kompleks dilebur (dimarger) oleh Pemerintah Kota Semarang menjadi 1 (Satu ) SD. Dengan Nama SD Negeri Gajahmungkur 01. Dasar perubahan nama SD, SK Walikota No. 421.2/205 tanggal 22 Juli 2002.";
         $pegawai = Pegawai::all();
+        $siswas = Siswa::all();
         $beritas = Berita::latest()->paginate(3);
-        return view('pages/user/dashboard', compact('pegawai', 'beritas', 'sejarah', 'sambutan'));
+        return view('pages/user/dashboard', compact('pegawai', 'siswas','beritas', 'sejarah', 'sambutan'));
     }
 
     public function profilsekolah()
@@ -43,7 +45,8 @@ SDN Gajahmungkur 01 berdiri pada tahun 1967 yang berada di sekitar pemukiman war
 
     public function siswa()
     {
-        return view('pages/user/siswa');
+        $siswas = Siswa::all(); 
+        return view('pages/user/siswa', compact('siswas'));
     }
 
 
