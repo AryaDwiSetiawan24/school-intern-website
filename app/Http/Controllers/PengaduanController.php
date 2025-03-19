@@ -22,18 +22,12 @@ class PengaduanController extends Controller
         return redirect()->back()->with('success', 'Pengaduan berhasil dikirim!');
     }
 
-    // Menampilkan daftar pengaduan untuk admin
-    public function index()
-    {
-        $pengaduans = Pengaduan::latest()->get();
-        return view('pages/admin/pengaduan/show-all-pengaduan', compact('pengaduans'));
-    }
-
     // Menghapus pengaduan
     public function destroy($id)
     {
-        Pengaduan::findOrFail($id)->delete();
-        return redirect()->route('pengaduan.show-all-pengaduan')->with('success', 'Pengaduan berhasil dihapus!');
+        $pengaduan = Pengaduan::findOrFail($id);
+        $pengaduan->delete();
+        return redirect()->route('pengaduan.page')->with('success', 'Pengaduan berhasil dihapus!');
     }
 }
 
