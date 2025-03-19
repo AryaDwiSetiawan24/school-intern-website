@@ -16,7 +16,7 @@
             Schema::create('datafeeds', function (Blueprint $table) {
                 $table->id();
                 $table->string('label')->nullable();
-                $table->float('data', 10, 2)->nullable();
+                $table->decimal('data', 10, 2)->nullable();
                 $table->tinyInteger('dataset_name')->nullable();
                 $table->tinyInteger('data_type')->default(1);
                 $table->timestamps();
