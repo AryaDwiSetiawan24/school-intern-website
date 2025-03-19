@@ -10,14 +10,8 @@
                         <h3 class="text-2xl font-bold mb-4">SD N GAJAHMUNGKUR 01</h3>
                         <p class="mb-4">Mendidik generasi penerus bangsa dengan pendidikan berkualitas.</p>
                         <div class="flex justify-center md:justify-start space-x-4">
-                            <a href="#" class="text-gray-800 hover:text-blue-400 transition duration-300">
-                                <i class="fab fa-facebook fa-2x"></i>
-                            </a>
-                            <a href="#" class="text-gray-800 hover:text-blue-400 transition duration-300">
-                                <i class="fab fa-twitter fa-2x"></i>
-                            </a>
-                            <a href="#" class="text-gray-800 hover:text-blue-400 transition duration-300">
-                                <i class="fab fa-instagram fa-2x"></i>
+                            <a href="https://www.youtube.com/channel/UC9ybuID69jbH4op5QAvq3zA" class="text-red-800 hover:text-blue-400 transition duration-300">
+                                <i class="fab fa-youtube fa-2x"></i>
                             </a>
                         </div>
                     </div>
