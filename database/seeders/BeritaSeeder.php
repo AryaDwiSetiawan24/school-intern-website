@@ -4,7 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Berita;
+use Faker\Factory as Faker;
 
 class BeritaSeeder extends Seeder
 {
@@ -13,47 +14,16 @@ class BeritaSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('beritas')->insert([
-            [
-            'judul' => 'Berita Pertama',
-            'isi' => 'Ini adalah isi berita pertama.',
-            'slug' => 'berita-pertama',
+        $faker = Faker::create('id_ID');
+        
+        // buat data dummy berita
+        foreach (range(1, 20) as $index) {
+            Berita::create([
+            'judul' => $faker->sentence(5),
+            'isi' => $faker->paragraph(3),
+            'slug' => $faker->slug,
             'gambar' => '',
-            'created_at' => now(),
-            'updated_at' => now(),
-            ],
-            [
-            'judul' => 'Berita Kedua',
-            'isi' => 'Ini adalah isi berita kedua.',
-            'slug' => 'berita-kedua',
-            'gambar' => '',
-            'created_at' => now(),
-            'updated_at' => now(),
-            ],
-            [
-            'judul' => 'Berita Ketiga',
-            'isi' => 'Ini adalah isi berita ketiga.',
-            'slug' => 'berita-ketiga',
-            'gambar' => '',
-            'created_at' => now(),
-            'updated_at' => now(),
-            ],
-            [
-            'judul' => 'Berita Keempat',
-            'isi' => 'Ini adalah isi berita keempat.',
-            'slug' => 'berita-keempat',
-            'gambar' => '',
-            'created_at' => now(),
-            'updated_at' => now(),
-            ],
-            [
-            'judul' => 'Berita Kelima',
-            'isi' => 'Ini adalah isi berita kelima.',
-            'slug' => 'berita-kelima',
-            'gambar' => '',
-            'created_at' => now(),
-            'updated_at' => now(),
-            ],
-        ]);
+            ]);
+        }
     }
 }
