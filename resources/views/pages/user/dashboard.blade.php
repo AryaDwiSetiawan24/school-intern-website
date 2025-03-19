@@ -6,8 +6,7 @@
 
         <div class="container px-4 mx-auto flex flex-col md:flex-row justify-center items-center relative">
             <!-- Konten -->
-            <div class="flex flex-col w-full md:w-2/5 justify-center items-center text-white text-center md:text-left">
-                <p class="uppercase tracking-wide">Yakin efisiensi anggaran pendidikan?</p>
+            <div class="flex flex-col w-full md:w-3/5 justify-center items-center text-white text-center md:text-left">
                 <h1 class="my-4 text-5xl font-bold leading-tight">SD N GAJAHMUNGKUR 01</h1>
                 <p class="leading-normal text-2xl mb-8">Kurikulum disusun dengan baik agar membantu siswa memahami materi yang diajarkan.</p>
             </div>
@@ -245,7 +244,7 @@
     </section>
 
     <!-- Change the colour #f8fafc to match the previous section colour -->
-    <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg"
+    <svg class="wave-top bg-gradient-to-r from-[#d53369] to-[#daae51]" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink">
         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
@@ -271,7 +270,7 @@
             </g>
         </g>
     </svg>
-    <section class="bg-gray-800 text-white py-16 px-4">
+    <section class="bg-gradient-to-r from-[#d53369] to-[#daae51] text-white py-16 px-4">
         <div class="container mx-auto max-w-7xl">
             <!-- Header -->
             <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
@@ -294,7 +293,7 @@
                 <div class="flex overflow-x-auto gap-6 pb-8 pt-2 px-2 -mx-2 scroll-smooth" id="teacherSlider" style="scrollbar-width: none; -ms-overflow-style: none;">
 
                     @foreach ($pegawai as $staff)
-                    <div class="text-center flex-shrink-0 mx-2 overflow-hidden w-60 md:w-48 lg:w-56 xl:w-64">
+                    <div class="text-center pt-2 flex-shrink-0 mx-2 overflow-hidden w-60 md:w-48 lg:w-56 xl:w-64">
                         <div class="relative overflow-hidden bg-white rounded-xl shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                             <img
                                 alt="{{ $staff->nama }}"

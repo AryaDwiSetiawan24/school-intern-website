@@ -5,7 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\SiswaController;
-
+use App\Http\Controllers\GalleryController;
 
 // Halaman user
 Route::get('/', [DashboardController::class, 'index'])->name('userDashboard');
@@ -29,7 +29,8 @@ Route::get('/pegawai', [DashboardController::class, 'pegawai'])->name('pegawai.i
 
 // Halaman galeri
 Route::get('/galeri-foto', [DashboardController::class, 'foto'])->name('foto.index');
-Route::get('/galeri-video', [DashboardController::class, 'video'])->name('video.index');
+Route::get('/galeri-foto/album/{album}', [DashboardController::class, 'showFoto'])->name('foto.show');
+
 
 // Halaman profil sekolah
 Route::get('/profilsekolah', [DashboardController::class, 'profilsekolah'])->name('profilsekolah.index');
@@ -48,4 +49,3 @@ Route::post('/pengaduan', [PengaduanController::class, 'store'])->name('pengadua
 // Route untuk menampilkan dan menghapus pengaduan di dashboard admin
 Route::get('/admin/pengaduan', [PengaduanController::class, 'index'])->name('pengaduan.show-all-pengaduan');
 Route::delete('/admin/pengaduan/{id}', [PengaduanController::class, 'destroy'])->name('pengaduan.destroy');
-
