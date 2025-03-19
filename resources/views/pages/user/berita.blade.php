@@ -52,7 +52,7 @@
                     @foreach ($beritas as $berita)
                     <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                         <div class="relative">
-                            <img src="{{ $berita->gambar ? asset('storage/' . $berita->gambar) : 'https://via.placeholder.com/400x300' }}"
+                            <img src="{{ ($berita->gambar) ? asset('storage/'.$berita->gambar) : 'https://placehold.co/600x400?text=No+Image' }}"
                                 alt="{{ $berita->judul }}"
                                 class="w-full h-60 object-cover">
                             <div class="absolute bottom-0 left-0 bg-blue-900 text-white p-3">
