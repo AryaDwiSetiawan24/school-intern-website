@@ -25,7 +25,7 @@
                     <option value="lainnya" {{ $pegawai->role == 'lainnya' ? 'selected' : '' }}>pilih role (lainnya)
                     </option>
                     <option value="guru" {{ $pegawai->role == 'guru' ? 'selected' : '' }}>Guru</option>
-                    <option value="pegawai" {{ $pegawai->role == 'pegawai' ? 'selected' : '' }}>Pegawai</option>
+                    <option value="staf" {{ $pegawai->role == 'staf' ? 'selected' : '' }}>Staf</option>
                 </select>
             </div>
             <div class="mb-4">
