@@ -1,14 +1,16 @@
 {{-- halaman dashboard user --}}
 <x-user-layout>
     <section>
-        <div class="relative h-screen flex justify-center items-center bg-cover bg-center bg-[url({{ asset('images/sdn01gajahmungkur.png') }})] bg-fixed">
+        <div
+            class="relative h-screen flex justify-center items-center bg-cover bg-center bg-[url({{ asset('images/sdn01gajahmungkur.png') }})] bg-fixed">
             <!-- Overlay gelap agar teks lebih terbaca -->
             <div class="absolute inset-0 bg-gradient-to-r from-[#d53369] to-[#daae51]/25"></div>
             <div class="container px-4 mx-auto flex flex-col md:flex-row justify-center items-center relative">
                 <!-- Konten -->
-                <div class="flex flex-col w-full md:w-2/5 justify-center items-center text-white text-center md:text-left">
+                <div
+                    class="flex flex-col w-full justify-center items-center text-white text-center">
                     <h1 class="my-4 text-xl lg:text-5xl font-bold leading-tight">SD N GAJAHMUNGKUR 01</h1>
-                    <p class="leading-normal text-md lg:text-2xl mb-8">Kurikulum disusun dengan baik agar membantu siswa memahami materi yang diajarkan.</p>
+                    <p class="leading-normal md:w-3/6 items-center text-center text-md lg:text-2xl mb-8">Kurikulum disusun dengan baik agar membantu siswa memahami materi yang diajarkan.</p>
                 </div>
             </div>
 
@@ -40,7 +42,8 @@
     </section>
     <section class="bg-white border-b py-8">
         <div class="container max-w-6xl mx-auto m-8">
-            <h2 class="w-full my-2 text-2xl lg:text-5xl font-bold leading-tight text-center text-gray-800" id="sambutan">
+            <h2 class="w-full my-2 text-2xl lg:text-5xl font-bold leading-tight text-center text-gray-800"
+                id="sambutan">
                 Sambutan Kepala Sekolah
             </h2>
             <div class="w-full mb-8">
@@ -49,7 +52,8 @@
 
             <div class="flex flex-wrap items-center mb-12">
                 <div class="w-full sm:w-1/3 p-6 flex flex-col items-center">
-                    <img class="h-72 w-auto object-cover rounded-lg shadow-lg mb-4" src="{{ asset('images/kepalasekolah.jpg') }}" alt="Kepala Sekolah" />
+                    <img class="h-72 w-auto object-cover rounded-lg shadow-lg mb-4"
+                        src="{{ asset('images/kepalasekolah.jpg') }}" alt="Kepala Sekolah" />
                     <h3 class="text-2xl text-gray-800 font-bold leading-tight mb-2 text-center">
                         Fransisca Suciana Hari Purwindah, S.Pd
                     </h3>
@@ -60,7 +64,8 @@
                         <p class="text-gray-600 mb-6 leading-relaxed">
                             <pre class="text-wrap font-sans">{{ Str::limit($sambutan, 550) }}</pre>
                         </p>
-                        <a class="inline-block px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition duration-300" href="/profilsekolah">Baca selengkapnya</a>
+                        <a class="inline-block mt-8 px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition duration-300"
+                            href="/profilsekolah">Baca selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -76,7 +81,8 @@
             <div class="flex flex-wrap items-center">
                 <div class="w-full sm:w-1/2 p-6">
                     <div class="relative h-80 overflow-hidden rounded-lg shadow-lg">
-                        <img class="w-full h-full object-cover" src="{{ asset('images/sejarah.jpg') }}" alt="Gedung Sekolah" onerror="this.src='/api/placeholder/600/480'; this.onerror=null;" />
+                        <img class="w-full h-full object-cover" src="{{ asset('images/sejarah.jpg') }}"
+                            alt="Gedung Sekolah" onerror="this.src='/api/placeholder/600/480'; this.onerror=null;" />
                         <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                     </div>
                 </div>
@@ -86,9 +92,10 @@
                             Perjalanan Kami
                         </h3>
                         <p class="text-gray-600 mb-6 leading-relaxed">
-                        <pre class="text-wrap font-sans">{{ Str::limit($sejarah, 300) }}</pre>
+                            <pre class="text-wrap font-sans">{{ Str::limit($sejarah, 300) }}</pre>
                         </p>
-                        <a class="inline-block px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition duration-300" href="/profilsekolah">
+                        <a class="inline-block mt-8 px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition duration-300"
+                            href="/profilsekolah">
                             Baca selengkapnya
                         </a>
                     </div>
@@ -108,54 +115,57 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach ($beritas as $berita)
-                <div class="flex flex-col h-full overflow-hidden bg-white rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <a href="{{ route('berita.show', $berita->slug) }}" class="block overflow-hidden h-48">
-                        <img
-                            src="{{ ($berita->gambar) ? asset('storage/'.$berita->gambar) : 'https://placehold.co/600x400?text=No+Image' }}"
-                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                            alt="{{ $berita->judul }}" />
-                    </a>
+                    <div
+                        class="flex flex-col h-full overflow-hidden bg-white rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <a href="{{ route('berita.show', $berita->slug) }}" class="block overflow-hidden h-48">
+                            <img src="{{ $berita->gambar ? asset('storage/' . $berita->gambar) : 'https://placehold.co/600x400?text=No+Image' }}"
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                                alt="{{ $berita->judul }}" />
+                        </a>
 
-                    <div class="flex-1 p-6">
-                        <div class="flex items-center mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <p class="text-gray-500 text-sm">
-                                {{ $berita->created_at->format('d M Y') }}
+                        <div class="flex-1 p-6">
+                            <div class="flex items-center mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 mr-1"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <p class="text-gray-500 text-sm">
+                                    {{ $berita->created_at->format('d M Y') }}
+                                </p>
+                            </div>
+
+                            <h3 class="font-bold text-xl text-gray-800 mb-3 line-clamp-2 hover:text-pink-500">
+                                <a href="{{ route('berita.show', $berita->slug) }}">{{ $berita->judul }}</a>
+                            </h3>
+
+                            <p class="text-gray-600 text-base mb-4 line-clamp-3">
+                                {{ Str::limit(strip_tags($berita->isi), 100) }}
                             </p>
+
                         </div>
 
-                        <h3 class="font-bold text-xl text-gray-800 mb-3 line-clamp-2 hover:text-pink-500">
-                            <a href="{{ route('berita.show', $berita->slug) }}">{{ $berita->judul }}</a>
-                        </h3>
-
-                        <p class="text-gray-600 text-base mb-4 line-clamp-3">
-                            {{ Str::limit(strip_tags($berita->isi), 100) }}
-                        </p>
-
+                        <div class="px-6 pb-4">
+                            <a class="inline-block px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition duration-300 text-sm font-medium"
+                                href="{{ route('berita.show', $berita->slug) }}">
+                                Baca selengkapnya
+                            </a>
+                        </div>
                     </div>
-
-                    <div class="px-6 pb-4">
-                        <a
-                            class="inline-block px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition duration-300 text-sm font-medium"
-                            href="{{ route('berita.show', $berita->slug) }}">
-                            Baca selengkapnya
-                        </a>
-                    </div>
-                </div>
                 @endforeach
             </div>
 
             <div class="flex justify-center mt-12">
-                <a
-                    href="{{ route('berita.index') }}"
-                    class="px-6 py-3 bg-gradient-to-r from-[#d53369] to-[#daae51] text-white rounded-md hover:bg-gray-300 transition duration-300 font-medium">
-                    Lihat Semua Berita
+                <a href="{{ route('berita.index') }}">
+                    <button
+                        class="mx-auto lg:mx-0 hover:no-underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                        Lihat Semua Berita
+                    </button>
                 </a>
             </div>
         </div>
     </section>
+
     {{-- Galeri --}}
     <section class="bg-gray-100 py-8">
         <div class="container mx-auto px-2 pt-4 pb-12 text-gray-800">
@@ -171,22 +181,27 @@
                         <div class="p-8 text-3xl font-bold text-center border-b-4">
                             Ekstrakurikuler
                         </div>
-                        <ul class="w-full text-center text-sm">
+                        {{-- <ul class="w-full text-center text-sm">
                             <li class="border-b py-4">foto1</li>
                             <li class="border-b py-4">foto2</li>
                             <li class="border-b py-4">foto3</li>
-                        </ul>
+                        </ul> --}}
+                        {{-- gambar --}}
+                        <img src="images\sdn01gajahmungkur.png" alt="galeri"
+                            class="w-full h-auto object-contain">
                     </div>
                     <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-                        <div class="w-full pt-6 text-3xl text-gray-600 font-bold text-center">
-                            1 Trofi
-                            <span class="text-base">untuk satu tahun</span>
+                        <div class="w-full pt-4 text-sm text-gray-600 font-bold text-center">
+                            Deskripsi
+                            {{-- <span class="text-base">untuk satu tahun</span> --}}
                         </div>
                         <div class="flex items-center justify-center">
-                            <button
-                                class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                                Lihat Lainnya...
-                            </button>
+                            <a href="{{ route('galeri.index') }}">
+                                <button
+                                    class="mx-auto lg:mx-0 hover:no-underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                                    Lihat Galeri
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -195,23 +210,28 @@
                     <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
                         <div class="w-full p-8 text-3xl font-bold text-center">SRA (Sekolah Ramah Anak)</div>
                         <div class="h-1 w-full gradient my-0 py-0 rounded-t"></div>
-                        <ul class="w-full text-center text-base font-bold">
+                        {{-- <ul class="w-full text-center text-base font-bold">
                             <li class="border-b py-4">Juara 1 antar RT</li>
                             <li class="border-b py-4">Juara 2 antar sekolah</li>
                             <li class="border-b py-4">Juara 3 antar jemput</li>
                             <li class="border-b py-4">dll.</li>
-                        </ul>
+                        </ul> --}}
+                        {{-- gambar --}}
+                        <img src="images\sdn01gajahmungkur.png" alt="galeri"
+                            class="w-full h-auto object-contain">
                     </div>
                     <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-                        <div class="w-full pt-6 text-4xl font-bold text-center">
-                            > 3 Trofi
-                            <span class="text-base">/ per semester</span>
+                        <div class="w-full pt-4 text-sm font-bold text-center">
+                            Deskripsi
+                            {{-- <span class="text-base">/ per semester</span> --}}
                         </div>
                         <div class="flex items-center justify-center">
-                            <button
-                                class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                                Lihat Lainnya...
-                            </button>
+                            <a href="{{ route('galeri.index') }}">
+                                <button
+                                    class="mx-auto lg:mx-0 hover:no-underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                                    Lihat Galeri
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -220,22 +240,27 @@
                         <div class="p-8 text-3xl font-bold text-center border-b-4">
                             FLS2N KECAMATAN GAJAHMUNGKUR
                         </div>
-                        <ul class="w-full text-center text-sm">
+                        {{-- <ul class="w-full text-center text-sm">
                             <li class="border-b py-4">Thing</li>
                             <li class="border-b py-4">Thing</li>
                             <li class="border-b py-4">Thing</li>
-                        </ul>
+                        </ul> --}}
+                        {{-- gambar --}}
+                        <img src="images\sdn01gajahmungkur.png" alt="galeri"
+                            class="w-full h-auto object-contain bg-amber-400">
                     </div>
                     <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-                        <div class="w-full pt-6 text-3xl text-gray-600 font-bold text-center">
-                            > 500 Trofi
-                            <span class="text-base">/ per bulan</span>
+                        <div class="w-full pt-4 text-sm text-gray-600 font-bold text-center">
+                            Deskripsi
+                            {{-- <span class="text-base">/ per bulan</span> --}}
                         </div>
                         <div class="flex items-center justify-center">
-                            <button
-                                class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                                Lihat Lainnya...
-                            </button>
+                            <a href="{{ route('galeri.index') }}">
+                                <button
+                                    class="mx-auto lg:mx-0 hover:no-underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                                    Lihat Galeri
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -244,8 +269,8 @@
     </section>
 
     <!-- Change the colour #f8fafc to match the previous section colour -->
-    <svg class="wave-top bg-gradient-to-r from-[#d53369] to-[#daae51]" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg class="wave-top bg-gradient-to-r from-[#d53369] to-[#daae51]" viewBox="0 0 1439 147" version="1.1"
+        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
                 <g class="wave" fill="#f8fafc">
@@ -283,35 +308,42 @@
             <!-- Slider Container -->
             <div class="relative mt-12 px-4 sm:px-8 md:px-12">
                 <!-- Left Arrow Button -->
-                <button id="scrollLeft" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white text-indigo-800 p-3 rounded-full z-10 shadow-lg hover:bg-indigo-100 transition duration-300 focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <button id="scrollLeft"
+                    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white text-indigo-800 p-3 rounded-full z-10 shadow-lg hover:bg-indigo-100 transition duration-300 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
                 </button>
 
                 <!-- Teacher Cards Slider -->
-                <div class="flex overflow-x-auto gap-6 pb-8 pt-2 px-2 -mx-2 scroll-smooth" id="teacherSlider" style="scrollbar-width: none; -ms-overflow-style: none;">
+                <div class="flex overflow-x-auto gap-6 pb-8 pt-2 px-2 -mx-2 scroll-smooth" id="teacherSlider"
+                    style="scrollbar-width: none; -ms-overflow-style: none;">
 
                     @foreach ($pegawai as $staff)
-                    <div class="text-center pt-2 flex-shrink-0 mx-2 overflow-hidden w-60 md:w-48 lg:w-56 xl:w-64">
-                        <div class="relative overflow-hidden bg-white rounded-xl shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                            <img
-                                alt="{{ $staff->nama }}"
-                                class="w-full h-72 sm:h-64 md:h-56 lg:h-60 xl:h-72 object-cover object-center transition-transform duration-500 hover:scale-110"
-                                src="{{ ($staff->foto) ? asset('storage/'.$staff->foto) : 'https://placehold.co/240x360?text=No+Image' }}" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-indigo-900 to-transparent opacity-30"></div>
+                        <div class="text-center pt-2 flex-shrink-0 mx-2 overflow-hidden w-60 md:w-48 lg:w-56 xl:w-64">
+                            <div
+                                class="relative overflow-hidden bg-white rounded-xl shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                                <img alt="{{ $staff->nama }}"
+                                    class="w-full h-72 sm:h-64 md:h-56 lg:h-60 xl:h-72 object-cover object-center transition-transform duration-500 hover:scale-110"
+                                    src="{{ $staff->foto ? asset('storage/' . $staff->foto) : 'https://placehold.co/240x360?text=No+Image' }}" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-indigo-900 to-transparent opacity-30">
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h2 class="font-bold text-lg mb-1 text-white">{{ $staff->nama }}</h2>
+                                <p class="text-sm font-medium text-gray-300 mb-1">{{ $staff->jabatan }}</p>
+                            </div>
                         </div>
-                        <div class="p-4">
-                            <h2 class="font-bold text-lg mb-1 text-white">{{ $staff->nama }}</h2>
-                            <p class="text-sm font-medium text-gray-300 mb-1">{{ $staff->jabatan }}</p>
-                        </div>
-                    </div>
                     @endforeach
                 </div>
 
                 <!-- Right Arrow Button -->
-                <button id="scrollRight" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white text-indigo-800 p-3 rounded-full z-10 shadow-lg hover:bg-indigo-100 transition duration-300 focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <button id="scrollRight"
+                    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white text-indigo-800 p-3 rounded-full z-10 shadow-lg hover:bg-indigo-100 transition duration-300 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
                 </button>
@@ -319,8 +351,7 @@
 
             <!-- View All Button -->
             <div class="text-center mt-10">
-                <a
-                    href="/pegawai"
+                <a href="/pegawai"
                     class="inline-block  text-white font-bold rounded-full py-4 px-8 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transform transition hover:scale-105 duration-300 ease-in-out gradient">
                     Lihat Semua Guru
                 </a>
