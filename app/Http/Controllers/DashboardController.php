@@ -85,6 +85,7 @@ SDN Gajahmungkur 01 berdiri pada tahun 1967 yang berada di sekitar pemukiman war
         $albums = Album::with('photos')->get();
         return view('pages/user/galeri-foto', compact('albums'));
     }
+    
     public function showFoto($id)
     {
         $album = Album::with('photos')->findOrFail($id);
