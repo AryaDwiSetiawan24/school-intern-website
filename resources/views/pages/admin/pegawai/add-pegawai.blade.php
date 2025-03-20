@@ -22,8 +22,8 @@
                 <option value="guru">
                     Guru
                 </option>
-                <option value="pegawai">
-                    Pegawai
+                <option value="staf">
+                    Staf
                 </option>
             </select>
         </div>

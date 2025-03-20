@@ -30,7 +30,7 @@
                     </tr>
                 </thead>
                 <tbody class="bg-gray-50">
-                    @foreach($pengaduans as $key => $pengaduan)
+                    @foreach($pengaduan as $key => $pengaduan)
                         <tr class="hover:bg-gray-100 transition">
                             <td class="p-2 border text-center">{{ $key+1 }}</td>
                             <td class="p-2 border break-words truncate">{{ $pengaduan->name }}</td>
