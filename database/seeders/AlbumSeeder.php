@@ -10,13 +10,18 @@ class AlbumSeeder extends Seeder
     public function run()
     {
         Album::create([
-            'name' => 'Dokumentasi Kegiatan 1',
-            'description' => 'Kegiatan pertama yang diadakan oleh perusahaan.',
+            'name' => 'Ekstrakurikuler',
+            'description' => 'Kegiatan pertama yang diadakan oleh Sekolah.',
         ]);
 
         Album::create([
-            'name' => 'Dokumentasi Kegiatan 2',
-            'description' => 'Kegiatan kedua yang diadakan oleh perusahaan.',
+            'name' => 'SRA (Sekolah Ramah Anak)',
+            'description' => 'Kegiatan kedua yang diadakan oleh Sekolah.',
+        ]);
+
+        Album::create([
+            'name' => 'FLS2N KECAMATAN GAJAHMUNGKUR',
+            'description' => 'Kegiatan ketiga yang diadakan oleh Sekolah.',
         ]);
     }
 }
