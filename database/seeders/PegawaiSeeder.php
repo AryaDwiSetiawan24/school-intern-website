@@ -32,8 +32,8 @@ class PegawaiSeeder extends Seeder
                 'nama' => $faker->name(),
                 'alamat' => $faker->address(),
                 'jabatan' => $faker->randomElement(['Kepala Sekolah', 'Wakil Kepala Sekolah', 'Guru', 'Staf']),
-                'role' => $faker->randomElement(['guru', 'staff']),
-                'foto' => 'photos/' . $fileName, // Simpan path relatif ke dalam database
+                'role' => $faker->randomElement(['guru', 'staf']),
+                'foto' => '', // Simpan path relatif ke dalam database
             ]);
         }
     }
