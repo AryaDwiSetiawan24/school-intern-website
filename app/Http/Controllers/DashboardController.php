@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\pegawai;
 use App\Models\berita;
 use App\Models\Album;
-use App\Models\Photo;
 use App\Models\Siswa;
+use App\Models\Photo;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
@@ -85,6 +85,7 @@ SDN Gajahmungkur 01 berdiri pada tahun 1967 yang berada di sekitar pemukiman war
         $albums = Album::with('photos')->get();
         return view('pages/user/galeri-foto', compact('albums'));
     }
+    
     public function showFoto($id)
     {
         $album = Album::with('photos')->findOrFail($id);

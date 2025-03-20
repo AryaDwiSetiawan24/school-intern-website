@@ -43,9 +43,9 @@ class PegawaiController extends Controller
         $pegawai->save();
 
         if ($pegawai) {
-            return redirect()->route('pegawai.create')->with('success', 'Pegawai created successfully.');
+            return redirect()->route('pegawai.store')->with('success', 'Pegawai created successfully.');
         } else {
-            return redirect()->route('pegawai.create')->with('error', 'Failed to create Pegawai.');
+            return redirect()->route('pegawai.store')->with('error', 'Failed to create Pegawai.');
         }
     }
 
@@ -88,6 +88,6 @@ class PegawaiController extends Controller
         $pegawai = Pegawai::findOrFail($id);
         $pegawai->delete();
 
-        return redirect()->route('pegawai.create')->with('success', 'Berita deleted successfully.');
+        return redirect()->route('pegawai.page')->with('success', 'Pegawai deleted successfully.');
     }
 }
