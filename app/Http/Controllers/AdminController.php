@@ -28,8 +28,9 @@ class AdminController extends Controller
         $beritasTerbaru = Berita::latest()->take(3)->get();
         $beritasTerlama = Berita::orderBy('updated_at', 'asc')->take(2)->get();
         $pegawais = Pegawai::latest()->take(5)->get();
+        $pengaduan = Pengaduan::latest()->take(5)->get();
 
-        return view('pages/admin/dashboard', compact('lakiLaki', 'perempuan', 'totalSiswa', 'kelas1', 'kelas2', 'kelas3', 'kelas4', 'kelas5', 'kelas6','beritasTerlama', 'beritasTerbaru', 'pegawais'));
+        return view('pages/admin/dashboard', compact('lakiLaki', 'perempuan', 'totalSiswa', 'kelas1', 'kelas2', 'kelas3', 'kelas4', 'kelas5', 'kelas6','beritasTerlama', 'beritasTerbaru', 'pegawais', 'pengaduan'));
     }
 
     // Pegawai
@@ -74,7 +75,7 @@ class AdminController extends Controller
     // Pengaduan
     public function pengaduanPage()
     {
-        $pengaduans = Pengaduan::latest()->get();
-        return view('pages/admin/pengaduan/show-pengaduan', compact('pengaduans'));
+        $pengaduan = Pengaduan::latest()->get();
+        return view('pages/admin/pengaduan/show-pengaduan', compact('pengaduan'));
     }
 }

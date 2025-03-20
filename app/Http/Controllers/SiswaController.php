@@ -12,6 +12,7 @@ class SiswaController extends Controller
     // Tampilkan daftar siswa di halaman user
     public function index()
     {
+        $siswas = Siswa::all();
         $siswas = Siswa::latest()->paginate(10);
         return view('pages/user/siswa', compact('siswas'));
     }

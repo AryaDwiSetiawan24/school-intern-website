@@ -16,7 +16,6 @@
                         <div
                             class="grow flex items-center border-b border-gray-100 dark:border-gray-700/60 text-sm py-2">
                             <div class="grow flex justify-between">
-                                <!-- Batasi judul berita hingga 10 karakter -->
                                 <div class="self-center">
                                     <a
                                         class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white">
