@@ -76,9 +76,10 @@ class BeritaController extends Controller
         return view('pages/admin/berita/show-berita', compact('berita'));
     }
 
-    public function edit($id)
+    // edit berita di admin
+    public function edit($slug)
     {
-        $berita = Berita::where('slug', $id)->firstOrFail();
+        $berita = Berita::where('slug', $slug)->firstOrFail();
         return view('pages/admin/berita/edit-berita', compact('berita'));
     }
 

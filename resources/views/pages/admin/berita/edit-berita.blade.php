@@ -32,7 +32,7 @@
                 <div class="mt-4">
                     <strong>Gambar Saat Ini:</strong>
                     <br>
-                    <img id="preview" src="{{ $berita->gambar ? asset('storage/' . $betita->gambar) : 'https://placehold.co/200x300?text=No+Image' }}" 
+                    <img id="preview" src="{{ $berita->gambar ? asset('storage/' . $berita->gambar) : 'https://placehold.co/200x300?text=No+Image' }}" 
                          alt="Gambar Berita" class="mt-2 w-32 h-32 object-cover rounded-md border">
                 </div>
             </div>
@@ -67,5 +67,15 @@
             };
             reader.readAsDataURL(event.target.files[0]);
         }
+    </script>
+
+    {{-- CKEditor --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#isi'))
+            .catch(error => {
+                console.error(error);
+            });
     </script>
 </x-app-layout>

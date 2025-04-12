@@ -196,7 +196,7 @@
                             {{-- <span class="text-base">untuk satu tahun</span> --}}
                         </div>
                         <div class="flex items-center justify-center">
-                            <a href="{{ route('galeri.index') }}">
+                            <a href="{{ route('foto.index') }}">
                                 <button
                                     class="mx-auto lg:mx-0 hover:no-underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                                     Lihat Galeri
@@ -226,7 +226,7 @@
                             {{-- <span class="text-base">/ per semester</span> --}}
                         </div>
                         <div class="flex items-center justify-center">
-                            <a href="{{ route('galeri.index') }}">
+                            <a href="{{ route('foto.index') }}">
                                 <button
                                     class="mx-auto lg:mx-0 hover:no-underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                                     Lihat Galeri
@@ -255,7 +255,7 @@
                             {{-- <span class="text-base">/ per bulan</span> --}}
                         </div>
                         <div class="flex items-center justify-center">
-                            <a href="{{ route('galeri.index') }}">
+                            <a href="{{ route('foto.index') }}">
                                 <button
                                     class="mx-auto lg:mx-0 hover:no-underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                                     Lihat Galeri
